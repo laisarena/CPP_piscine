@@ -6,15 +6,14 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 12:03:03 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/09/21 21:15:08 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/09/25 17:09:47 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_H
 # define CONTACT_H
 
-# include <string>
-# include <iostream>
+# include "util.hpp"
 
 class Contact {
 
@@ -29,6 +28,8 @@ public:
 	Contact(void);
 	~Contact(void);
 
+	void display(void);
+	bool isEmpty(void);
 	void setFirstName(std::string firstName);
 	void setLastName(std::string lastName);
 	void setNickname(std::string nickname);

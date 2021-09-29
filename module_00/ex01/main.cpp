@@ -6,73 +6,87 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 11:39:04 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/09/20 21:05:20 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/09/29 14:16:45 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-
-static void	print(std::string message) {
-	std::cout << message;
-}
-
-static void	printEnd(std::string message) {
-	print(message);
-	std::cout << std::endl;
-}
+#include "PhoneBook.hpp" 
 
 static void	invalidCommand(std::string input) {
 	std::cout << "\"" << input << "\""
 		<< " is not a valid command." << std::endl;
 }
 
-static std::string	getInput(std::string message)
-{
-	std::string	input;
-
-	print(message);
-	std::getline(std::cin, input);
-	return (input);
+static void	invalidIndex(std::string input) {
+	std::cout << "\"" << input << "\""
+		<< " is not a valid index." << std::endl;
 }
 
-static void	getContactInformation(void)
-{
-	std::string	input;
+static int validateIndex(std::string input) {
+	int		index;
+	char	c;
 
-	input = getInput("FIRST NAME: ");
-	input = getInput("LAST NAME: ");
-	input = getInput("NICKNAME: ");
-	input = getInput("PHONE NUMBER: ");
-	input = getInput("DARKEST SECRET: ");
-	//first_name;
-	//last_name;
-	////nickname;
-	//phone_number;
-	//darkest_secret;
+	if (input.size() != 1)
+		return -1;
+	c = input.front();
+	index = c - '0';
+	if (index > 0 && index < 9)
+		return index;
+	return -1;
+
+}
+static Contact getContactInformation(void)
+{
+	Contact		contact;
+
+	contact.setFirstName(getInput("FIRST NAME: "));
+	contact.setLastName(getInput("LAST NAME: "));
+	contact.setNickname(getInput("NICKNAME: "));
+	contact.setPhoneNumber(getInput("PHONE NUMBER: "));
+	contact.setDarkestSecret(getInput("DARKEST SECRET: "));
+	return contact;
 }
 
-static void	addContact(void)
+static void	addContact(PhoneBook *phoneBook)
 {
-	getContactInformation();
+	Contact		contact;
+	
+	contact = getContactInformation();
+	phoneBook->add(contact);
+}
+
+static void searchContact(PhoneBook phoneBook)
+{
+	int			index;
+	std::string	input;
+	
+	phoneBook.displayContacts();
+	input = getInput("INDEX: ");
+	index = validateIndex(input);
+	if (index != -1)
+		phoneBook.displayContact(index);
+	else
+		invalidIndex(input);
 }
 
 int	main(void) {
 	std::string	input;
+	PhoneBook phoneBook;
 
 	printEnd(" --- WELCOME --- ");
 	while (1) {
-		input = getInput("");
+		input = getInput("> ");
 		if (!input.compare("ADD"))
-			addContact();
+			addContact(&phoneBook);
 		else if (!input.compare("SEARCH"))
-			continue ;
+			searchContact(phoneBook);
 		else if (!input.compare(""))
 			continue ;
 		else if (!input.compare("EXIT"))
 			break ;
 		else
 			invalidCommand(input);
+		printEnd("");
 	}
 	return (0);
 }

@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   util.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 11:43:17 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/09/29 16:06:28 by lfrasson         ###   ########.fr       */
+/*   Created: 2021/09/24 10:36:33 by lfrasson          #+#    #+#             */
+/*   Updated: 2021/09/26 18:23:12 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONE_BOOK_H
-# define PHONE_BOOK_H
+#ifndef UTIL_H
+# define UTIL_H
 
-# include "util.hpp"
-# include "Contact.hpp"
+# include <iostream>
+# include <string>
 
-class PhoneBook {
-
-public:
-	Contact	contacts[8];
-	int		oldest;	
-
-	PhoneBook(void);
-	~PhoneBook(void);
-
-	void	add(Contact contact);
-	void	displayContacts(void);
-	void	displayContact(int index);
-	void	search(void);
-	void	exit(void);
-};
+void		print(std::string message);
+void		printEnd(std::string message);
+void		printFill(std::string message, int width);
+std::string	getInput(std::string message);
 
 #endif

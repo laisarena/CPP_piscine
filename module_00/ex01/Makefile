@@ -6,7 +6,7 @@
 #    By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/14 10:35:47 by lfrasson          #+#    #+#              #
-#    Updated: 2021/09/15 13:41:10 by lfrasson         ###   ########.fr        #
+#    Updated: 2021/09/24 10:58:02 by lfrasson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS += -g
 CFLAGS += -std=c++98
 RM := rm -rf
 
-SRCS := PhoneBook.cpp Contact.cpp
+SRCS := PhoneBook.cpp Contact.cpp util.cpp
 HEADERS := $(SRCS:.cpp=.hpp)
 SRCS += main.cpp
 
