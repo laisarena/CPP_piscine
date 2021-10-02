@@ -29,6 +29,7 @@ run 2 "shhhhh... I think the students are asleep..."\
 	"SHHHHH... I THINK THE STUDENTS ARE ASLEEP..."
 
 echo -en "\n --- TESTE 3 => "
+INPUT="Damnit \" ! \" \"Sorry students, I thought this thing was off.\""
 OUTPUT=`$PROGRAM Damnit " ! " "Sorry students, I thought this thing was off."`
 TARGET="DAMNIT  !  SORRY STUDENTS, I THOUGHT THIS THING WAS OFF."
 if [ "$OUTPUT" != "$TARGET" ];
@@ -37,5 +38,5 @@ if [ "$OUTPUT" != "$TARGET" ];
 else
 	echo -e "${GREEN}Success${RESET} --- "
 fi
-echo -e "${YELLOW}${PROGRAM}${RESET} $OUTPUT"
+echo -e "${YELLOW}${PROGRAM}${RESET} $INPUT"
 echo -e "${YELLOW}output: ${RESET} $OUTPUT"

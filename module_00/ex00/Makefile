@@ -6,7 +6,7 @@
 #    By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/14 10:35:47 by lfrasson          #+#    #+#              #
-#    Updated: 2021/09/14 11:48:15 by lfrasson         ###   ########.fr        #
+#    Updated: 2021/10/02 18:18:54 by lfrasson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,9 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
+test:
+	bash teste.sh
+
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test
