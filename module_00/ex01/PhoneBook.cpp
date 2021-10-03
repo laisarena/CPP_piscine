@@ -6,15 +6,13 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 11:43:22 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/09/29 16:09:35 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/10/02 23:13:49 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <iomanip>
 
-PhoneBook::PhoneBook(void) {
-	this->oldest = 0;
+PhoneBook::PhoneBook(void) : _oldest(0) {
 	return ;
 }
 
@@ -23,10 +21,21 @@ PhoneBook::~PhoneBook(void) {
 }
 
 void	PhoneBook::add(Contact contact) {
-	this->contacts[this->oldest] = contact;
-	this->oldest++;
-	if (this->oldest == 8)
-		this->oldest = 0;
+	if (contact.isEmpty())
+		return ;
+	this->_contacts[this->_oldest++] = contact;
+	if (this->_oldest == 8)
+		this->_oldest = 0;
+}
+
+bool	PhoneBook::isEmpty(void) {
+	int	i;
+
+	i = 0;
+	while (i < 8)
+		if (!this->_contacts[i++].isEmpty())
+			return false;
+	return true;
 }
 
 void	PhoneBook::displayContacts(void) {
@@ -38,16 +47,16 @@ void	PhoneBook::displayContacts(void) {
 	i = 0;
 	while (i < 8)
 	{
-		if (!contacts[i].isEmpty())
+		if (!this->_contacts[i].isEmpty())
 		{
 			print("|");
 			std::cout << std::setw(10) << (i + 1);
 			print("|");
-			printFill(contacts[i].getFirstName(), 10);
+			printFill(this->_contacts[i].getFirstName(), 10);
 			print("|");
-			printFill(contacts[i].getLastName(), 10);
+			printFill(this->_contacts[i].getLastName(), 10);
 			print("|");
-			printFill(contacts[i].getNickname(), 10);
+			printFill(this->_contacts[i].getNickname(), 10);
 			printEnd("|");
 		}
 		i++;
@@ -57,16 +66,8 @@ void	PhoneBook::displayContacts(void) {
 }
 
 void	PhoneBook::displayContact(int index) {
-	if (contacts[index - 1].isEmpty())
+	if (this->_contacts[index - 1].isEmpty())
 		printEnd("Empty contact");
 	else 
-		contacts[index - 1].display();
-}
-
-void	PhoneBook::search(void) {
-	return ;
-}
-
-void	PhoneBook::exit(void) {
-	return ;
+		this->_contacts[index - 1].display();
 }

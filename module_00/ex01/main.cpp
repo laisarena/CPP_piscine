@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 11:39:04 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/09/29 14:16:45 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/10/02 22:50:12 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ static void searchContact(PhoneBook phoneBook)
 	int			index;
 	std::string	input;
 	
+	if (phoneBook.isEmpty())
+	{
+		printEnd("The phonebook is empty ");
+		return ;
+	}
 	phoneBook.displayContacts();
 	input = getInput("INDEX: ");
 	index = validateIndex(input);
@@ -71,7 +76,7 @@ static void searchContact(PhoneBook phoneBook)
 
 int	main(void) {
 	std::string	input;
-	PhoneBook phoneBook;
+	PhoneBook	phoneBook;
 
 	printEnd(" --- WELCOME --- ");
 	while (1) {
@@ -86,7 +91,6 @@ int	main(void) {
 			break ;
 		else
 			invalidCommand(input);
-		printEnd("");
 	}
 	return (0);
 }

@@ -6,18 +6,17 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 13:38:22 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/09/29 14:12:24 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/10/02 23:01:21 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact(void) {
-	this->_firstName = "";
-	this->_lastName = "";
-	this->_nickname = "";
-	this->_phoneNumber = "";
-	this->_darkestSecret = "";
+Contact::Contact(void): _firstName(""),
+						_lastName(""),
+						_nickname(""),
+						_phoneNumber(""),
+						_darkestSecret("") {
 	return ;
 }
 
