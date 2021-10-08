@@ -28,7 +28,7 @@ static int validateIndex(std::string input) {
 
 	if (input.size() != 1)
 		return -1;
-	c = input.front();
+	c = input[0];
 	index = c - '0';
 	if (index > 0 && index < 9)
 		return index;
@@ -79,7 +79,7 @@ int	main(void) {
 	PhoneBook	phoneBook;
 
 	printEnd(" --- WELCOME --- ");
-	while (1) {
+	while (!std::cin.eof()) {
 		input = getInput("> ");
 		if (!input.compare("ADD"))
 			addContact(&phoneBook);
