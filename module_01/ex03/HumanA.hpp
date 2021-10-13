@@ -6,7 +6,7 @@
 /*   By: lfrasson <laisarena@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 20:33:51 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/10/12 20:36:47 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/10/13 22:20:30 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class HumanA {
 
 private:
 	std::string	_name;
-	Weapon		_weapon;
+	Weapon		&_weapon;
 
 public:
 	HumanA( std::string name, Weapon &weapon );

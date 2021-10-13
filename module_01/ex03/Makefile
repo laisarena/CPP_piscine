@@ -6,7 +6,7 @@
 #    By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/14 10:35:47 by lfrasson          #+#    #+#              #
-#    Updated: 2021/10/11 19:48:27 by lfrasson         ###   ########.fr        #
+#    Updated: 2021/10/13 22:45:32 by lfrasson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ CC := clang++
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -g
 CFLAGS += -std=c++98
+#CFLAGS += -fstandalone-debug
 RM := rm -rf
 
 SRCS := Weapon.cpp HumanA.cpp HumanB.cpp
