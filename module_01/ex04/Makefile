@@ -6,7 +6,7 @@
 #    By: lfrasson <laisarena@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 20:49:19 by lfrasson          #+#    #+#              #
-#    Updated: 2021/10/12 20:49:23 by lfrasson         ###   ########.fr        #
+#    Updated: 2021/10/13 16:02:38 by lfrasson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS += -g
 CFLAGS += -std=c++98
 RM := rm -rf
 
-SRCS := 
+SRCS := Arguments.cpp 
 HEADERS := $(SRCS:.cpp=.hpp)
 SRCS += main.cpp
 
