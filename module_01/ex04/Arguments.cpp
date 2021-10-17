@@ -6,7 +6,7 @@
 /*   By: lfrasson <laisarena@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 15:37:25 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/10/13 19:08:03 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/10/13 20:39:11 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,10 @@ char	*Arguments::getOutputName( void ) const    {
 	return (char *)this->_outputName.c_str();
 }
 
-char	*Arguments::getString1( void ) const    {
+std::string	Arguments::getString1( void ) const    {
 	return this->_string1;
 }
 
 char	*Arguments::getString2( void ) const {
 	return this->_string2;
 }
-
