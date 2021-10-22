@@ -6,45 +6,72 @@
 /*   By: lfrasson <laisarena@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 20:49:36 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/10/16 02:48:35 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/10/21 03:14:55 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <fstream>
-#include "Arguments.hpp"
+# include <fstream>
+//#include "File.hpp"
+
+static void toUpper(char **stringPtr) {
+	char	*string;
+	char	c;
+
+	string = *stringPtr;
+	while (*string) {
+		c = *string;
+		if (c >= 'a' && c <= 'z')
+			*string = c - 32;
+		string++;
+	}
+}
+
+static std::string	createOutputName(char *name) {
+	toUpper(&name);
+	std::string	outputName(name);
+	outputName.append(".replace");
+	return outputName;
+}
 
 static int	errorHandler( int numberOfArguments) {
-	if ( numberOfArguments == 4)
+	if (numberOfArguments == 4)
 		return 0;
 	std::cout << "This program takes 3 arguments: filename, s1 and s2:"
 		<< std::endl;
 	return -1;
 }
 
-int		main(int argc, char **argv) {
+int		main(int argc, char **argv)
+{
 	if (errorHandler(argc))
 		return -1;
-	
-	Arguments arg(argv[1], argv[2], argv[3]);
-	
-	std::ifstream	inputFile( arg.getInputName() );
-	std::ofstream	outputFile( arg.getOutputName() );
-	
-	char c;
-	std::string s1 = arg.getString1();
-	char *buf = NULL;;
-	while (inputFile.get(c))
+
+	std::ifstream	input(argv[1]);
+	std::ofstream	output(createOutputName(argv[1]).c_str());
+
+
+	std::string	line;
+	std::string	s1(argv[2]);
+	std::string	s2(argv[3]);
+	std::size_t pos;
+	while (input)
 	{
-		if (c == s1[0])
+		getline(input, line);
+		pos = line.find(s1);
+		if (pos != std::string::npos)
 		{
-			std::cout << s1 << " " << s1.size() << std::endl;
-			inputFile.get(buf, s1.size() - 1);
-			if (s1.compare(1, s1.size() - 1, buf))
-				outputFile << arg.getString2();
+			output << line.substr(0, pos);
+			output << s2;
+			output << line.substr(pos + s1.length(), line.length()) << std::endl;
 		}
-		outputFile << c;
+		else
+		{
+			if (!line.empty())
+				output << line << std::endl;
+		}
 	}
-	outputFile.close();
+	input.close();
+	output.close();
 	return 0;
 }

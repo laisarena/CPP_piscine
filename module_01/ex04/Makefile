@@ -6,7 +6,7 @@
 #    By: lfrasson <laisarena@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 20:49:19 by lfrasson          #+#    #+#              #
-#    Updated: 2021/10/13 16:02:38 by lfrasson         ###   ########.fr        #
+#    Updated: 2021/10/20 02:09:25 by lfrasson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,11 @@ CC := clang++
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -g
 CFLAGS += -std=c++98
+CFLAGS += -fstandalone-debug
 RM := rm -rf
 
-SRCS := Arguments.cpp 
+SRCS := 
+#SRCS := File.cpp 
 HEADERS := $(SRCS:.cpp=.hpp)
 SRCS += main.cpp
 
