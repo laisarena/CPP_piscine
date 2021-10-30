@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/10 17:09:14 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/10/11 11:00:47 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/10/31 00:28:19 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 # include <string>
 # include <iostream>
 
-class Zombie {
+class Zombie
+{
+	private:
+		std::string	_name;
 
-private:
-	std::string	_name;
+	public:
+		Zombie(std::string);
+		~Zombie(void);
 
-public:
-	Zombie( std::string );
-	~Zombie( void );
-	
-	void	announce( void );
+		void	announce(void);
 };
 
 #endif
