@@ -6,13 +6,13 @@
 #    By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/14 10:35:47 by lfrasson          #+#    #+#              #
-#    Updated: 2021/10/13 22:45:32 by lfrasson         ###   ########.fr        #
+#    Updated: 2021/10/31 00:43:36 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := violence
 
-CC := clang++
+CC := c++
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -g
 CFLAGS += -std=c++98
