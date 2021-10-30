@@ -6,13 +6,13 @@
 #    By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/14 10:35:47 by lfrasson          #+#    #+#              #
-#    Updated: 2021/10/11 19:34:35 by lfrasson         ###   ########.fr        #
+#    Updated: 2021/10/31 00:31:29 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := thisIsBrain
 
-CC := clang++
+CC := c++
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -g
 CFLAGS += -std=c++98
