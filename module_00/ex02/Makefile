@@ -6,13 +6,13 @@
 #    By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/29 17:16:41 by lfrasson          #+#    #+#              #
-#    Updated: 2021/10/02 18:10:39 by lfrasson         ###   ########.fr        #
+#    Updated: 2021/10/26 20:31:25 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := tests
 
-CC := clang++
+CC := c++
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -g
 CFLAGS += -std=c++98

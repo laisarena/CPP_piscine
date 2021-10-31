@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 10:36:33 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/09/26 18:23:12 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/10/26 20:57:15 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <string>
+# include <iomanip>
 
 void		print(std::string message);
 void		printEnd(std::string message);

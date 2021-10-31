@@ -6,13 +6,13 @@
 #    By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/14 10:35:47 by lfrasson          #+#    #+#              #
-#    Updated: 2021/10/02 18:18:54 by lfrasson         ###   ########.fr        #
+#    Updated: 2021/10/26 20:26:49 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := megaphone
 
-CC := clang++
+CC := c++
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -g
 CFLAGS += -std=c++98
