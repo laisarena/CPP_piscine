@@ -6,13 +6,14 @@
 /*   By: lfrasson <laisarena@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 23:02:15 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/10/14 00:23:36 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/10/31 16:21:49 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Karen.hpp"
 
-int		main( void ) {
+int	main(void)
+{
 	Karen	karen = Karen();
 
 	karen.complain("DEBUG");
