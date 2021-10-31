@@ -40,10 +40,16 @@ static std::string	createOutputName(char *name) {
 	return outputName;
 }
 
-static void openFiles(std::ifstream &input,  std::ofstream &output, char *name)
+static int openFiles(std::ifstream &input,  std::ofstream &output, char *name)
 {
 	input.open(name);
+	if (!input.is_open())
+	{
+		std::cout << "Could not open file \"" << name << "\""<< std::endl;
+		return -1;
+	}
 	output.open(createOutputName(name).c_str());
+	return 0;
 }
 
 static void	closeFiles(std::ifstream &input,std::ofstream &output)
@@ -60,7 +66,8 @@ int		main(int argc, char **argv)
 	std::ifstream	input;
 	std::ofstream	output;
 	
-	openFiles(input, output, argv[1]);
+	if (openFiles(input, output, argv[1]))
+		return -1;
 	replaceStringInFile(argv[2], argv[3], input, output);
 	closeFiles(input, output);
 	return 0;

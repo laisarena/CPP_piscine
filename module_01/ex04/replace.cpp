@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/23 01:53:15 by coder             #+#    #+#             */
-/*   Updated: 2021/10/23 02:06:27 by coder            ###   ########.fr       */
+/*   Updated: 2021/10/31 15:56:16 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	replaceStringInFile(std::string	s1, std::string	s2,
 	
 	while (input)
 	{
-		getline(input, line);
+		std::getline(input, line);
 		line = replaceString(line, s1, s2);
 		if (!line.empty())
 			output << line << std::endl;

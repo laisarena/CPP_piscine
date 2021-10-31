@@ -6,17 +6,17 @@
 #    By: lfrasson <laisarena@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/12 20:49:19 by lfrasson          #+#    #+#              #
-#    Updated: 2021/10/23 02:05:33 by coder            ###   ########.fr        #
+#    Updated: 2021/10/31 01:13:16 by coder            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := replace
 
-CC := clang++
+CC := c++
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -g
 CFLAGS += -std=c++98
-CFLAGS += -fstandalone-debug
+#CFLAGS += -fstandalone-debug
 RM := rm -rf
 
 SRCS := replace.cpp
