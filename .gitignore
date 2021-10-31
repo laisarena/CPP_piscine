@@ -31,7 +31,7 @@
 *.out
 *.app
 
-# Vim
+# vim temporary files
 *.swp
 *.swo
 
