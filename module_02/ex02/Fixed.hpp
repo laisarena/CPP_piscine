@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 22:01:36 by coder             #+#    #+#             */
-/*   Updated: 2021/11/01 15:45:15 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/01 16:57:46 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ class	Fixed
 		int		toInt(void) const;
 		int		getRawBits(void) const;
 		void	setRawBits(int const intValue);
-		void	setRawBits(float const floatValue);
 		
 		Fixed	&operator=(Fixed const &rightSideObject);
 		

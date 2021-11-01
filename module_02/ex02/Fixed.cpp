@@ -6,25 +6,26 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 10:43:50 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/01 16:25:02 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/01 18:21:23 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void)
+Fixed::Fixed(void) :	_fixedPointValue(0)
 {
-	this->setRawBits(0);
+	return;
 }
 
 Fixed::Fixed(int const integerValue)
 {
-	this->setRawBits(integerValue);
+	this->_fixedPointValue = integerValue << this->_numberOfFractionalBits;
 }
 
 Fixed::Fixed(float const floatValue)
 {
-	this->setRawBits(floatValue);
+	this->_fixedPointValue = roundf(floatValue *
+							(1 << this->_numberOfFractionalBits));
 }
 
 Fixed::Fixed(Fixed const &object)
@@ -57,15 +58,9 @@ int		Fixed::getRawBits(void) const
 	return this->_fixedPointValue;
 }
 
-void	Fixed::setRawBits(int const intValue)
+void	Fixed::setRawBits(int const rawBits)
 {
-	this->_fixedPointValue = intValue << this->_numberOfFractionalBits;
-}
-
-void	Fixed::setRawBits(float const floatValue)
-{
-	this->_fixedPointValue = roundf(floatValue *
-							(1 << this->_numberOfFractionalBits));
+	this->_fixedPointValue = rawBits;
 }
 
 Fixed	&Fixed::operator=(Fixed const &rightSideObject)
@@ -76,29 +71,39 @@ Fixed	&Fixed::operator=(Fixed const &rightSideObject)
 
 Fixed	Fixed::operator+(Fixed const &rightSideObject)
 {
-	this->_fixedPointValue += rightSideObject.getRawBits();
-	return *this;
+	Fixed	result(*this);
+
+	result.setRawBits(result.getRawBits() + rightSideObject.getRawBits());
+	return result;
 }
 
 Fixed	Fixed::operator-(Fixed const &rightSideObject)
 {
-	this->_fixedPointValue -= rightSideObject.getRawBits();
-	return *this;
+	Fixed	result(*this);
+
+	result.setRawBits(result.getRawBits() - rightSideObject.getRawBits());
+	return result;
 }
 
 Fixed	Fixed::operator*(Fixed const &rightSideObject)
 {
-	this->_fixedPointValue *= rightSideObject.getRawBits();
-	this->_fixedPointValue = this->_fixedPointValue
-									>> this->_numberOfFractionalBits;
-	return *this;
+	Fixed	result(*this);
+	int		rawBits;
+
+	rawBits = result.getRawBits() * rightSideObject.getRawBits();
+	result.setRawBits(rawBits >> this->_numberOfFractionalBits);
+	return result;
 }
 
 Fixed	Fixed::operator/(Fixed const &rightSideObject)
 {
-	this->_fixedPointValue /= rightSideObject.getRawBits()
-									>> this->_numberOfFractionalBits;
-	return *this;
+	Fixed	result(*this);
+	int		rawBits;
+
+	rawBits = result.getRawBits()
+		/ (rightSideObject.getRawBits() >> this->_numberOfFractionalBits);
+	result.setRawBits(rawBits);
+	return result;
 }
 
 Fixed	&Fixed::operator++(void)
@@ -187,9 +192,6 @@ Fixed const	&Fixed::max(Fixed const &value1, Fixed const &value2)
 
 std::ostream & operator<<(std::ostream &output, Fixed const &rightSideObject)
 {
-	float x;
-
-	x = rightSideObject.toFloat();
-	output << x;
+	output << rightSideObject.toFloat();
 	return output;
 }
