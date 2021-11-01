@@ -6,13 +6,13 @@
 #    By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/14 10:35:47 by lfrasson          #+#    #+#              #
-#    Updated: 2021/10/26 03:10:11 by coder            ###   ########.fr        #
+#    Updated: 2021/11/01 19:38:46 by lfrasson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := fixed-point
 
-CC := clang++
+CC := c++
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -g
 CFLAGS += -std=c++98
