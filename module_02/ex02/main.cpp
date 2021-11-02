@@ -6,7 +6,7 @@
 /*   By: lfrasson <laisarena@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 00:28:50 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/01 18:41:54 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/01 21:16:09 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,16 @@ static void	comparisonTest(void)
 	Fixed b(10.5f);
 	Fixed c(10.5f);
 
-	std::cout << a << " < " << b << " : " << (a < b) << std::endl;
-	std::cout << a << " > " << b << " : " << (a > b) << std::endl;
-	std::cout << c << " >= " << b << " : " << (c >= b) << std::endl;
-	std::cout << c << " <= " << b << " : " << (c <= b) << std::endl;
-	std::cout << c << " == " << b << " : " << (c == b) << std::endl;
-	std::cout << c << " != " << b << " : " << (c != b) << std::endl;
+	std::cout << a << " < " << b << " = " << (a < b) << std::endl;
+	std::cout << a << " > " << b << " = " << (a > b) << std::endl;
+	std::cout << a << " >= " << b << " = " << (a >= b) << std::endl;
+	std::cout << c << " >= " << b << " = " << (c >= b) << std::endl;
+	std::cout << a << " <= " << b << " = " << (a <= b) << std::endl;
+	std::cout << c << " <= " << b << " = " << (c <= b) << std::endl;
+	std::cout << a << " == " << b << " = " << (a == b) << std::endl;
+	std::cout << c << " == " << b << " = " << (c == b) << std::endl;
+	std::cout << a << " != " << b << " = " << (a != b) << std::endl;
+	std::cout << c << " != " << b << " = " << (c != b) << std::endl;
 }
 
 static void	arithmeticTest(void)

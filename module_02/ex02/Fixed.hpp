@@ -6,7 +6,7 @@
 /*   By: coder <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 22:01:36 by coder             #+#    #+#             */
-/*   Updated: 2021/11/01 16:57:46 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/01 21:17:37 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,16 @@ class	Fixed
 
 	public:
 		Fixed(void);
-		Fixed(int const fixedPointValue);
-		Fixed(float const fixedPointValue);
+		Fixed(int const value);
+		Fixed(float const value);
 		Fixed(Fixed const &object);
 		~Fixed(void);
 		
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
+		
 		float	toFloat(void) const;
 		int		toInt(void) const;
-		int		getRawBits(void) const;
-		void	setRawBits(int const intValue);
 		
 		Fixed	&operator=(Fixed const &rightSideObject);
 		

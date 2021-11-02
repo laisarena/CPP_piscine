@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/27 10:43:50 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/01 18:21:23 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/01 21:18:24 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,16 @@ Fixed::~Fixed(void)
 	return;
 }
 
+int		Fixed::getRawBits(void) const
+{
+	return this->_fixedPointValue;
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+	this->_fixedPointValue = raw;
+}
+
 float	Fixed::toFloat(void) const
 {
 	float	floatValue;
@@ -51,16 +61,6 @@ float	Fixed::toFloat(void) const
 int		Fixed::toInt(void) const
 {
 	return this->_fixedPointValue >> this->_numberOfFractionalBits;
-}
-
-int		Fixed::getRawBits(void) const
-{
-	return this->_fixedPointValue;
-}
-
-void	Fixed::setRawBits(int const rawBits)
-{
-	this->_fixedPointValue = rawBits;
 }
 
 Fixed	&Fixed::operator=(Fixed const &rightSideObject)
