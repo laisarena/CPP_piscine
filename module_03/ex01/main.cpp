@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:45:43 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/03 15:36:08 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/03 19:00:43 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int		main(void)
 	jorge.beRepaired(10);
 	std::cout << jorge;
 	std::cout << marcia;
+	marcia.guardGate();
+
 	return 0;
 }
