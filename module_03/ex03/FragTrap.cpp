@@ -6,18 +6,32 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 19:30:05 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/03 19:36:08 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/07 18:42:06 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+int const	FragTrap::_initial_hitpoint = 100;
+int const	FragTrap::_initial_energy_point = 100;
+int const	FragTrap::_initial_attack_damage = 30;
+
 FragTrap::FragTrap(void)
 {
-	this->_name = "Fulano";
-	this->_hitpoints = 100;
-	this->_energy_points = 100;
-	this->_attack_damage = 30;
+	initializeAttributes("Fulano");
+}
+
+FragTrap::FragTrap(std::string name)
+{
+	initializeAttributes(name);
+}
+
+void	FragTrap::initializeAttributes(std::string name)
+{
+	this->_name = name;
+	this->_hitpoints = _initial_hitpoint;
+	this->_energy_points = _initial_energy_point;
+	this->_attack_damage = _initial_attack_damage;
 
 	std::cout	<< "FragTrap "
 				<< this->_name
@@ -26,23 +40,6 @@ FragTrap::FragTrap(void)
 				<< " hitpoints and your attack damage is "
 				<< this->_attack_damage
 				<< "."
-				<< std::endl;
-}
-
-FragTrap::FragTrap(std::string name)
-{
-	this->_name = name;
-	this->_hitpoints = 100;
-	this->_energy_points = 100;
-	this->_attack_damage = 30;
-
-	std::cout	<< "FragTrap "
-				<< this->_name
-				<< " was created with "
-				<< this->_hitpoints
-				<< " hitpoints and your attack damage is "
-				<< this->_attack_damage
-				
 				<< std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:46:34 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/03 15:40:44 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/08 21:47:47 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,16 @@
 class	ClapTrap
 {
 	protected:
+		static int const	_initial_hitpoint;
+		static int const	_initial_energy_point;
+		static int const	_initial_attack_damage;
+
 		std::string	_name;
 		int			_hitpoints;
 		int			_energy_points;
 		int			_attack_damage;
+
+		void	initializeAttributes(std::string name);
 
 	public:
 		ClapTrap(void);

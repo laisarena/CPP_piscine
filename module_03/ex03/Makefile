@@ -6,7 +6,7 @@
 #    By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 14:42:48 by lfrasson          #+#    #+#              #
-#    Updated: 2021/11/03 21:39:30 by lfrasson         ###   ########.fr        #
+#    Updated: 2021/11/08 21:51:17 by lfrasson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ CC := c++
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -g
 CFLAGS += -std=c++98
-CFLAGS += -fstandalone-debug
 CFLAGS += -Wshadow
+CFLAGS += -fstandalone-debug
 RM := rm -rf
 
 SRCS := ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp

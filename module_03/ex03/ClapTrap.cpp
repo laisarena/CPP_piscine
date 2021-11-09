@@ -6,32 +6,33 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:48:03 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/03 18:44:59 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/07 18:39:00 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(void):	_name("Fulano"),
-							_hitpoints(10),
-							_energy_points(10),
-							_attack_damage(0)
+int const	ClapTrap::_initial_hitpoint = 10;
+int const	ClapTrap::_initial_energy_point = 10;
+int const	ClapTrap::_initial_attack_damage = 0;
+
+ClapTrap::ClapTrap(void)
 {
-	std::cout	<< "ClapTrap "
-				<< this->_name
-				<< " was created with "
-				<< this->_hitpoints
-				<< " hitpoints and your attack damage is "
-				<< this->_attack_damage
-				<< "."
-				<< std::endl;
+	initializeAttributes("Fulano");
 }
 
-ClapTrap::ClapTrap(std::string name):	_name(name),
-										_hitpoints(10),
-										_energy_points(10),
-										_attack_damage(0)
+ClapTrap::ClapTrap(std::string name)
 {
+	initializeAttributes(name);
+}
+
+void	ClapTrap::initializeAttributes(std::string name)
+{
+	this->_name = name;
+	this->_hitpoints = _initial_hitpoint;
+	this->_energy_points = _initial_energy_point;
+	this->_attack_damage = _initial_attack_damage;
+
 	std::cout	<< "ClapTrap "
 				<< this->_name
 				<< " was created with "
