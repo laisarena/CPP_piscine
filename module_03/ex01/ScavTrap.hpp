@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:12:50 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/03 18:46:51 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:26:38 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@
 
 class	ScavTrap : public ClapTrap
 {
+	private:
+		void		_initializeAttributes(std::string name);
+
 	public:
 		ScavTrap(void);
 		ScavTrap(std::string name);
 		~ScavTrap(void);
-		
+
 		void	attack(std::string const &target);
 		void	guardGate(void);
 };

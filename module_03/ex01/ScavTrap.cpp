@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 17:15:46 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/03 19:01:09 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:23:06 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,15 @@
 
 ScavTrap::ScavTrap(void)
 {
-	this->_name = "Fulano";
-	this->_hitpoints = 100;
-	this->_energy_points = 50;
-	this->_attack_damage = 20;
-
-	std::cout	<< "ScavTrap "
-				<< this->_name
-				<< " was created with "
-				<< this->_hitpoints
-				<< " hitpoints and your attack damage is "
-				<< this->_attack_damage
-				<< "."
-				<< std::endl;
+	_initializeAttributes("Fulano");
 }
 
 ScavTrap::ScavTrap(std::string name)
+{
+	_initializeAttributes(name);
+}
+
+void	ScavTrap::_initializeAttributes(std::string name)
 {
 	this->_name = name;
 	this->_hitpoints = 100;
@@ -40,7 +33,9 @@ ScavTrap::ScavTrap(std::string name)
 				<< this->_name
 				<< " was created with "
 				<< this->_hitpoints
-				<< " hitpoints and your attack damage is "
+				<< " hitpoints, "
+				<< this->_energy_points
+				<< " energy points and your attack damage is "
 				<< this->_attack_damage
 				<< "."
 				<< std::endl;
