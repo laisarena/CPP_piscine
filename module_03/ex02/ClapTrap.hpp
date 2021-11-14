@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:46:34 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/03 15:40:44 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:28:33 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 
 class	ClapTrap
 {
+	private:
+		void		_initializeAttributes(std::string name);
+
 	protected:
 		std::string	_name;
 		int			_hitpoints;
@@ -30,7 +33,7 @@ class	ClapTrap
 		ClapTrap(ClapTrap const &object);
 		~ClapTrap(void);
 		ClapTrap	&operator=(ClapTrap const &right_side_object);
-		
+
 		void	setName(std::string name);
 		void	setHitpoints(int hitpoints);
 		void	setEnengyPoints(int energy_points);

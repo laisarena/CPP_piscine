@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 19:07:49 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/03 19:36:38 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/14 20:38:02 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 class	FragTrap : public ClapTrap
 {
+	private:
+		void		_initializeAttributes(std::string name);
+
 	public:
 		FragTrap(void);
 		FragTrap(std::string name);
