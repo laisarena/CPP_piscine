@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 19:30:05 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/07 18:42:06 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/15 11:35:46 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ int const	FragTrap::_initial_attack_damage = 30;
 
 FragTrap::FragTrap(void)
 {
-	initializeAttributes("Fulano");
+	_initializeAttributes("Fulano");
 }
 
 FragTrap::FragTrap(std::string name)
 {
-	initializeAttributes(name);
+	_initializeAttributes(name);
 }
 
-void	FragTrap::initializeAttributes(std::string name)
+void	FragTrap::_initializeAttributes(std::string name)
 {
 	this->_name = name;
 	this->_hitpoints = _initial_hitpoint;
@@ -37,7 +37,9 @@ void	FragTrap::initializeAttributes(std::string name)
 				<< this->_name
 				<< " was created with "
 				<< this->_hitpoints
-				<< " hitpoints and your attack damage is "
+				<< " hitpoints, "
+				<< this->_energy_points
+				<< " energy points and your attack damage is "
 				<< this->_attack_damage
 				<< "."
 				<< std::endl;

@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:07:53 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/08 09:09:34 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/15 12:34:07 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 DiamondTrap::DiamondTrap(void)
 {
-	initializeAttributes("Fulano");
+	_initializeAttributes("Fulano");
 }
 
 DiamondTrap::DiamondTrap(std::string name)
 {
-	initializeAttributes(name);
+	_initializeAttributes(name);
 }
 
-void	DiamondTrap::initializeAttributes(std::string name)
+void	DiamondTrap::_initializeAttributes(std::string name)
 {
 	this->_name = name;
 	ClapTrap::_name = name.append("_clap_name");
@@ -34,7 +34,9 @@ void	DiamondTrap::initializeAttributes(std::string name)
 				<< this->_name
 				<< " was created with "
 				<< this->_hitpoints
-				<< " hitpoints and your attack damage is "
+				<< " hitpoints, "
+				<< this->_energy_points
+				<< " energy points and your attack damage is "
 				<< this->_attack_damage
 				<< "."
 				<< std::endl;

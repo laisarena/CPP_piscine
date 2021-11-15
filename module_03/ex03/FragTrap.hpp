@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 19:07:49 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/08 21:48:45 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/11/15 11:34:18 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@
 
 class	FragTrap : public virtual ClapTrap
 {
+	private:
+		void	_initializeAttributes(std::string name);
+
 	protected:
 		static int const	_initial_hitpoint;
 		static int const	_initial_energy_point;
 		static int const	_initial_attack_damage;
-
-		void	initializeAttributes(std::string name);
 
 	public:
 		FragTrap(void);
