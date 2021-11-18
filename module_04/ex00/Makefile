@@ -6,7 +6,7 @@
 #    By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 14:42:48 by lfrasson          #+#    #+#              #
-#    Updated: 2021/11/15 17:25:32 by lfrasson         ###   ########.fr        #
+#    Updated: 2021/11/18 18:55:01 by lfrasson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS += -g
 CFLAGS += -std=c++98
 RM := rm -rf
 
-SRCS := Animal.cpp Dog.cpp Cat.cpp
+SRCS := Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 HEADERS := $(SRCS:.cpp=.hpp)
 SRCS += main.cpp
 
