@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:22:07 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/15 18:21:46 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/06 20:47:42 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,10 @@ Dog::~Dog(void) {
 void	Dog::makeSound(void) const
 {
 	std::cout << "* WOOF WOOF *" << std::endl;
+}
+
+Dog	&Dog::operator=(Dog const &right_side_object)
+{
+	this->_type = right_side_object.getType();
+	return *this;
 }

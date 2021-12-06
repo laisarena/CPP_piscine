@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:29:01 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/15 18:22:31 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/06 20:46:33 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,10 @@ Cat::~Cat(void) {
 void	Cat::makeSound(void) const
 {
 	std::cout << "* MEOW MEOW *" << std::endl;
+}
+
+Cat	&Cat::operator=(Cat const &right_side_object)
+{
+	this->_type = right_side_object.getType();
+	return *this;
 }
