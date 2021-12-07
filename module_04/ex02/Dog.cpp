@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:22:07 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/18 20:13:13 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:38:03 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ Dog::Dog(void)
 Dog::Dog(Dog const &object)
 {
 	*this = object;
-	this->brain = new Brain(*this->brain);
 	std::cout	<< "Constructed deep Dog" << std::endl;
 }
 
@@ -42,4 +41,11 @@ Brain	*Dog::getBrain(void) const
 void	Dog::makeSound(void) const
 {
 	std::cout << "* WOOF WOOF *" << std::endl;
+}
+
+Dog	&Dog::operator=(Dog const &right_side_object)
+{
+	this->_type = right_side_object.getType();
+	this->brain = new Brain(*right_side_object.getBrain());
+	return *this;
 }

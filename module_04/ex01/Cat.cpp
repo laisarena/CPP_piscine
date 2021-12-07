@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:29:01 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/17 21:31:46 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:11:36 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,19 @@ Cat::~Cat(void)
 	std::cout	<< "Destroyed Cat" << std::endl;
 }
 
+Brain	*Cat::getBrain(void) const
+{
+	return this->brain;
+}
+
 void	Cat::makeSound(void) const
 {
 	std::cout << "* MEOW MEOW *" << std::endl;
 }
+
+Cat	&Cat::operator=(Cat const &right_side_object)
+{
+	this->_type = right_side_object.getType();
+	this->brain = new Brain(*right_side_object.getBrain());
+	return *this;
+ }

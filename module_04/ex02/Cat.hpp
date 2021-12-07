@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:29:53 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/17 20:33:36 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:26:10 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ class	Cat: public Animal
 		Cat(Cat const &object);
 		~Cat(void);
 
+		Brain		*getBrain(void) const;
 		void		makeSound(void) const;
+
+		Cat	&operator=(Cat const &right_side_object);
 };
 
 #endif

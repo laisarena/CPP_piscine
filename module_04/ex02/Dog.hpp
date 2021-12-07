@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:23:59 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/18 20:09:56 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:39:27 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class	Dog: public Animal
 
 		Brain		*getBrain(void) const;
 		void		makeSound(void) const;
+
+		Dog	&operator=(Dog const &right_side_object);
 };
 
 #endif

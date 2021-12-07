@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 20:17:20 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/11/18 20:03:10 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/06 21:16:29 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 Brain::Brain(void)
 {
 	for (int i = 0; i < 100; i++)
-	{
 		this->_ideas[i] = std::string("Idea ").append(std::to_string(i));
-	}
 	std::cout	<< "Constructed Brain"
 				<< std::endl;
 }
