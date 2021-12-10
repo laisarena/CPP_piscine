@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 18:54:48 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/05 21:24:18 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/05 21:36:10 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	basicTests(void)
 	Character *maria = new Character("Maria");
 
 	std::cout << std::endl
-		<< "------ Create the materias that source have"
+		<< "------ Create the materias through materia source"
 		<< " and equipe Maria -------" << std::endl;
 	
 	AMateria *tmpMateria;
@@ -59,11 +59,14 @@ static void	deepCopyTests(void)
 		<< "------ Create materia source that learn two materias, "
 		<< "Ice and Cure -------" << std::endl;
 	
-	IMateriaSource	*materiaSource = new MateriaSource();
+	MateriaSource	*materiaSource = new MateriaSource();
 	materiaSource->learnMateria(new Ice());
 	materiaSource->learnMateria(new Cure());
 
-	/*IMateriaSource	*materiaSourceCopy = new MateriaSource(materiaSource);
+	std::cout << std::endl
+		<< "------ Create a copy of that materia source, than delete the original "
+		<<  std::endl;
+	MateriaSource	*materiaSourceCopy = new MateriaSource(*materiaSource);
 	delete materiaSource;
 
 	Character	*maria = new Character("Maria");
@@ -75,7 +78,6 @@ static void	deepCopyTests(void)
 	AMateria	*lastMateria;
 	lastMateria = materiaSourceCopy->createMateria("cure");
 	maria->equip(lastMateria);
-*/
 }
 
 int		main(void)

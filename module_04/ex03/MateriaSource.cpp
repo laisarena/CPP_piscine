@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 13:58:13 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/05 21:23:04 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/09 21:50:52 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,10 @@ void	MateriaSource::_initializeStorage(void)
 
 MateriaSource::~MateriaSource()
 {
-	AMateria	**storage;
-
-	storage = this->_learned_materia_storage;
-	while (*storage)
-	{
-		delete *storage;
-		storage++;
-	}
-	std::cout	<< "DEBUG: "
-				<< "MateriaSource destructor"
-				<< std::endl;
+	std::cout << "DEBUG: " << "MateriaSource destructor" << std::endl;
+	for (int i = 0; i < _storage_size; i++)
+		if (this->_learned_materia_storage[i])
+			delete this->_learned_materia_storage[i];
 	return;
 }
 
@@ -78,15 +71,16 @@ void		MateriaSource::learnMateria(AMateria *materia)
 AMateria*	MateriaSource::createMateria(std::string const &type) 
 {
 	for (int i = 0; i < _storage_size; i++)
-	{
 		if (!this->_learned_materia_storage[i]->getType().compare(type))
 			return this->_learned_materia_storage[i]->clone();
-	}
 	return NULL;
 }
 
 MateriaSource	&MateriaSource::operator=(MateriaSource &right_side_object)
 {
-	right_side_object.createMateria("ice");
+	for (int i = 0; i < _storage_size; i++)
+		if (right_side_object._learned_materia_storage[i])
+			this->_learned_materia_storage[i]
+				= right_side_object._learned_materia_storage[i]->clone();
 	return *this;
 }

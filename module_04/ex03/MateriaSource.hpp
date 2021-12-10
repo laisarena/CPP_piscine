@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:20:14 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/05 19:04:26 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/05 21:46:21 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class	MateriaSource:	public IMateriaSource
 		virtual				~MateriaSource();
 		virtual void		learnMateria(AMateria *materia);
 		virtual AMateria*	createMateria(std::string const & type) ;
+
 };
 
 #endif

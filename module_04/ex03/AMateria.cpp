@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 19:09:05 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/05 21:15:47 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/08 20:43:58 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,9 @@ std::string const	&AMateria::getType() const
 
 void	AMateria::use(ICharacter &target)
 {
-	std::cout << target.getName() << std::endl;
+	std::cout	<< "Materia "
+				<< this->_type
+				<< " used on " 
+				<< target.getName()
+				<< std::endl;
 }
