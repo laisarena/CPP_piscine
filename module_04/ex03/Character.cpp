@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 19:04:08 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/05 21:15:24 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/15 21:56:10 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ Character::~Character()
 Character	&Character::operator=(Character const &right_side_object)
 {
 	this->_name = right_side_object.getName();
+	for (int i = 0; i < _inventory_size; i++)
+		if (right_side_object._materia[i])
+			this->_materia[i] = right_side_object._materia[i]->clone();
 	return *this;
 }
 
@@ -75,7 +78,6 @@ void	Character::equip(AMateria *m)
 			return;
 		}
 	}
-	std::cout << "Can't equip." << std::endl;
 }
 
 bool	Character::_invalid_index(int idx)
@@ -97,6 +99,8 @@ void	Character::unequip(int idx)
 void	Character::use(int idx, ICharacter &target)
 {
 	if (_invalid_index(idx))
+		return;
+	if (!this->_materia[idx])
 		return;
 	this->_materia[idx]->use(target);
 }

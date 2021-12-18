@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 13:58:13 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/09 21:50:52 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/15 20:06:25 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,9 @@ void		MateriaSource::learnMateria(AMateria *materia)
 AMateria*	MateriaSource::createMateria(std::string const &type) 
 {
 	for (int i = 0; i < _storage_size; i++)
-		if (!this->_learned_materia_storage[i]->getType().compare(type))
-			return this->_learned_materia_storage[i]->clone();
+		if (this->_learned_materia_storage[i])
+			if (!this->_learned_materia_storage[i]->getType().compare(type))
+				return this->_learned_materia_storage[i]->clone();
 	return NULL;
 }
 
