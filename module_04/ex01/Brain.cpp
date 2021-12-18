@@ -6,16 +6,34 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 20:17:20 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/06 21:16:29 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/18 17:43:18 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
+static std::string *toString (int number)
+{
+	std::string *string = new std::string();
+	while (number / 10)
+	{
+		string->insert(0, 1, number % 10 + '0');
+		number /= 10;
+	}
+	string->insert(0, 1, number % 10 + '0');
+	return string;
+
+}
+
 Brain::Brain(void)
 {
+
 	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = std::string("Idea ").append(std::to_string(i));
+	{
+		std::string *number = toString(i);
+		this->_ideas[i] = std::string("Idea ").append(*number);
+		delete number;
+	}
 	std::cout	<< "Constructed Brain"
 				<< std::endl;
 }
