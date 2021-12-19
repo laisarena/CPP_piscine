@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 14:06:23 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/04 21:19:58 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/18 18:17:33 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 Ice::Ice(void)
 {
 	this->_type = "ice";
+}
+
+Ice::~Ice(void)
+{
+	return;
 }
 
 AMateria	*Ice::clone() const

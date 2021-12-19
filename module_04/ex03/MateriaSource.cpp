@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 13:58:13 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/15 20:06:25 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/19 01:38:09 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ void		MateriaSource::learnMateria(AMateria *materia)
 		if (!this->_learned_materia_storage[i])
 		{
 			this->_learned_materia_storage[i] = materia->clone();
-			delete materia;
 			std::cout	<< "DEBUG: "
 						<< "MateriaSource learnMateria -> "
 						<< materia->getType()
 						<< std::endl;
+			delete materia;
 			return;
 		}
 	}

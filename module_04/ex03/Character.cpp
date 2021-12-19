@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 19:04:08 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/15 21:56:10 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/18 18:03:56 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ Character::Character(Character const &object)
 
 Character::~Character()
 {
+	for (int i = 0; i < _inventory_size; i++)
+		if (this->_materia[i])
+			delete this->_materia[i];
 	std::cout	<< "DEBUG: "
 				<< "Character destructor"
 				<< std::endl;
