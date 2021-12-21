@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 22:20:14 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/05 21:46:21 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/22 00:05:40 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class	MateriaSource:	public IMateriaSource
 {
 	private:
-		AMateria	*_learned_materia_storage[4];
+		AMateria*	_learned_materia_storage[4];
 		static int	_storage_size;
 
 		void	_initializeStorage(void);
@@ -28,13 +28,13 @@ class	MateriaSource:	public IMateriaSource
 	
 	public:
 		MateriaSource(void);
-		MateriaSource(MateriaSource &object);
+		MateriaSource(MateriaSource& object);
+		virtual	~MateriaSource();
 
-		MateriaSource	&operator=(MateriaSource &right_side_object);
-		virtual				~MateriaSource();
 		virtual void		learnMateria(AMateria *materia);
-		virtual AMateria*	createMateria(std::string const & type) ;
-
+		virtual AMateria*	createMateria(std::string const & type);
+		
+		MateriaSource&	operator=(const MateriaSource& right_side_object);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 13:58:13 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/19 01:38:09 by coder            ###   ########.fr       */
+/*   Updated: 2021/12/22 00:07:38 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ MateriaSource::~MateriaSource()
 	return;
 }
 
-void		MateriaSource::learnMateria(AMateria *materia) 
+void	MateriaSource::learnMateria(AMateria* materia) 
 {
 	for (int i = 0; i < _storage_size; i++)
 	{
@@ -68,7 +68,7 @@ void		MateriaSource::learnMateria(AMateria *materia)
 	return;
 }
 
-AMateria*	MateriaSource::createMateria(std::string const &type) 
+AMateria*	MateriaSource::createMateria(std::string const & type) 
 {
 	for (int i = 0; i < _storage_size; i++)
 		if (this->_learned_materia_storage[i])
@@ -77,7 +77,7 @@ AMateria*	MateriaSource::createMateria(std::string const &type)
 	return NULL;
 }
 
-MateriaSource	&MateriaSource::operator=(MateriaSource &right_side_object)
+MateriaSource& MateriaSource::operator=(const MateriaSource& right_side_object)
 {
 	for (int i = 0; i < _storage_size; i++)
 		if (right_side_object._learned_materia_storage[i])

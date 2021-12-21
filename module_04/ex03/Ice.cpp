@@ -6,15 +6,20 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 14:06:23 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/18 18:17:33 by coder            ###   ########.fr       */
+/*   Updated: 2021/12/21 22:52:12 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice(void)
+Ice::Ice(void):	AMateria("ice")
 {
-	this->_type = "ice";
+	return;
+}
+
+Ice::Ice(const Ice& object)
+{
+	*this = object;
 }
 
 Ice::~Ice(void)
@@ -22,10 +27,9 @@ Ice::~Ice(void)
 	return;
 }
 
-AMateria	*Ice::clone() const
+AMateria*	Ice::clone() const
 {
-	AMateria *clone = new Ice();
-	return clone;
+	return new Ice();
 }
 
 void	Ice::use(ICharacter &target)
@@ -34,4 +38,10 @@ void	Ice::use(ICharacter &target)
 				<< target.getName()
 				<< " *"
 				<< std::endl;
+}
+
+Ice&	Ice::operator=(Ice const &right_side_object)
+{
+	this->_type = right_side_object.getType();
+	return *this;
 }

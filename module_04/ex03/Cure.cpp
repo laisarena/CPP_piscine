@@ -6,15 +6,20 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/04 14:17:31 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/19 01:38:05 by coder            ###   ########.fr       */
+/*   Updated: 2021/12/22 00:00:04 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(void)
+Cure::Cure(void): AMateria("cure")
 {
-	this->_type = "cure";
+	return;
+}
+
+Cure::Cure(const Cure& object)
+{
+	*this = object;
 }
 
 Cure::~Cure(void)
@@ -22,10 +27,9 @@ Cure::~Cure(void)
 	return;
 }
 
-AMateria	*Cure::clone() const
+AMateria*	Cure::clone() const
 {
-	AMateria *clone = new Cure();
-	return clone;
+	return new Cure();
 }
 
 void	Cure::use(ICharacter &target)
@@ -34,4 +38,10 @@ void	Cure::use(ICharacter &target)
 				<< target.getName()
 				<< "’s wounds *"
 				<< std::endl;
+}
+
+Cure&	Cure::operator=(Cure const &right_side_object)
+{
+	this->_type = right_side_object.getType();
+	return *this;
 }

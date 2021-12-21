@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 19:04:08 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/18 18:03:56 by coder            ###   ########.fr       */
+/*   Updated: 2021/12/22 00:14:36 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,19 @@
 
 int	Character::_inventory_size = 4;
 
-Character::Character(void)
+Character::Character(void):	_name("Fulano")
 {
 	std::cout	<< "DEBUG: "
 				<< "Character default constructor"
 				<< std::endl;
-	this->_name = "Fulano";
 	_initializeInventory();
 }
 
-Character::Character(std::string name)
+Character::Character(std::string name):	_name(name)
 {
 	std::cout	<< "DEBUG: "
 				<< "Character named constructor -> "
 				<< name << std::endl;
-	this->_name = name;
 	_initializeInventory();
 }
 
@@ -38,7 +36,7 @@ void	Character::_initializeInventory(void)
 		this->_materia[i] = NULL;
 }
 
-Character::Character(Character const &object)
+Character::Character(const Character& object)
 {
 	std::cout	<< "DEBUG: "
 				<< "Character copy constructor"
@@ -57,7 +55,7 @@ Character::~Character()
 	return;
 }
 
-Character	&Character::operator=(Character const &right_side_object)
+Character&	Character::operator=(const Character& right_side_object)
 {
 	this->_name = right_side_object.getName();
 	for (int i = 0; i < _inventory_size; i++)
