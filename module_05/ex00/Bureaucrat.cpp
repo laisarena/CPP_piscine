@@ -6,28 +6,28 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 22:20:32 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/20 22:50:55 by lfrasson         ###   ########.fr       */
+/*   Updated: 2021/12/23 13:37:39 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void)
+Bureaucrat::Bureaucrat(void):	_name("Fulano"),
+								_grade(150)
 {
-	this->name = "Fulano";
-	this->grade = 150;
+	return;
 }
 
-Bureaucrat::Bureaucrat(std::string name)
+Bureaucrat::Bureaucrat(std::string name):	_name(name),
+											_grade(150)
 {
-	this->name = name;
-	this->grade = 150;
+	return;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade):	_name(name),
+														_grade(grade)
 {
-	this->name = name;
-	this->grade = grade;
+	_checkGrade();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& right_side_object)
@@ -42,29 +42,48 @@ Bureaucrat::~Bureaucrat(void)
 
 std::string	Bureaucrat::getName(void) const
 {
-	return this->name;
+	return this->_name;
 }
 
 int			Bureaucrat::getGrade(void) const
 {
-	return this->grade;
+	return this->_grade;
 }
 
 void		Bureaucrat::incrementGrade(void)
 {
-	this->grade--;
-
+	this->_grade--;
+	_checkGrade();
 }
 
 void		Bureaucrat::decrementGrade(void)
 {
-	this->grade++;
+	this->_grade++;
+	_checkGrade();
+}
+
+void	Bureaucrat::_checkGrade(void)
+{
+	try {
+		if (this->_grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+		if (this->_grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch (const Bureaucrat::GradeTooHighException& e) {
+		std::cout << e.what() << std::endl;
+		this->_grade = 1;
+	}
+	catch (const Bureaucrat::GradeTooLowException& e) {
+		std::cout << e.what() << std::endl;
+		this->_grade = 150;
+	}
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& right_side_object)
 {
-	this->name = right_side_object.name;
-	this->grade = right_side_object.grade;
+	this->_name = right_side_object._name;
+	this->_grade = right_side_object._grade;
 	return *this;
 }
 
