@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 22:20:32 by lfrasson          #+#    #+#             */
-/*   Updated: 2021/12/23 13:37:39 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/08 16:41:18 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,10 @@ void		Bureaucrat::decrementGrade(void)
 
 void	Bureaucrat::_checkGrade(void)
 {
-	try {
-		if (this->_grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		if (this->_grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-	}
-	catch (const Bureaucrat::GradeTooHighException& e) {
-		std::cout << e.what() << std::endl;
-		this->_grade = 1;
-	}
-	catch (const Bureaucrat::GradeTooLowException& e) {
-		std::cout << e.what() << std::endl;
-		this->_grade = 150;
-	}
+	if (this->_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	if (this->_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& right_side_object)
