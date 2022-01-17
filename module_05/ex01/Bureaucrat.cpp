@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 22:20:32 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/09 19:23:12 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/17 10:15:05 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,34 @@ void		Bureaucrat::decrementGrade(void)
 	_checkGrade();
 }
 
-void	Bureaucrat::signForm(Form form)
+bool Bureaucrat::_hasAlreadySigned(Form& form)
 {
-	if (form.getSigned())
+	if (form.getSigned() == false)
+		return false;
+	std::cout << this->_name << " cannot sign " << form.getName()
+		<< " because this form has already been signed." << std::endl;
+	return true;
+}
+
+void	Bureaucrat::signForm(Form& form)
+{
+	if (_hasAlreadySigned(form))
+		return;
+	try {
+		form.beSigned(*this);
 		std::cout << this->_name << " signs " << form.getName()
 			<< "." << std::endl;
-	else
+	} 
+	catch (const Form::GradeTooHighException& e) {
 		std::cout << this->_name << " cannot sign " << form.getName()
-			<< " because " <<  "." << std::endl;
-
+			<< " because:" << std::endl;
+		std::cout << e.what() << std::endl;
+	}
+	catch (const Form::GradeTooLowException& e) {
+		std::cout << this->_name << " cannot sign " << form.getName()
+			<< " because:" << std::endl;
+		std::cout << e.what() << std::endl;
+	}
 }
 
 void	Bureaucrat::_checkGrade(void)

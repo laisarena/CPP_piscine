@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 20:45:44 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/08 18:09:22 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/17 10:14:24 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Bureaucrat
 		int			_grade;
 
 		void		_checkGrade(void);
+		bool		_hasAlreadySigned(Form& form);
 
 	public:
 		Bureaucrat(void);
@@ -39,7 +40,7 @@ class Bureaucrat
 		void		incrementGrade(void);
 		void		decrementGrade(void);
 		
-		void		signForm(Form form);
+		void		signForm(Form& form);
 
 		Bureaucrat&	operator=(const Bureaucrat& right_side_object);
 

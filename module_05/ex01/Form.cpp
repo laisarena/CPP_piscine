@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 13:56:49 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/13 16:15:29 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:41:27 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void		Form::beSigned(Bureaucrat bureaucrat)
 	if (bureaucrat.getGrade() < this->_grade_to_sign)
 		throw Form::GradeTooLowException();
 	this->_signed = true;
-	bureaucrat.signForm(*this);
 }
 
 void	Form::_checkGrade(const int& grade)

@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 22:31:39 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/10 17:34:50 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:42:29 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void creatForm(int sign, int exec)
 void creatFormAndTrySign(void)
 {
 	try {
+		Bureaucrat maria = Bureaucrat("Maria", 10);
 		Form form1 = Form("Form1", 20, 20);
 		std::cout << form1 << std::endl;
-		Bureaucrat maria = Bureaucrat("Maria", 10);
-		form1.beSigned(maria);
+		maria.signForm(form1);
 		std::cout << form1 << std::endl;
 	} 
 	catch (const Form::GradeTooHighException& e) {
@@ -46,10 +46,10 @@ void creatFormAndTrySign(void)
 void creatFormAndSign(void)
 {
 	try {
+		Bureaucrat maria = Bureaucrat("Maria", 30);
 		Form form1 = Form("Form1", 20, 20);
 		std::cout << form1 << std::endl;
-		Bureaucrat maria = Bureaucrat("Maria", 30);
-		form1.beSigned(maria);
+		maria.signForm(form1);
 		std::cout << form1 << std::endl;
 	} 
 	catch (const Form::GradeTooHighException& e) {
@@ -63,12 +63,12 @@ void creatFormAndSign(void)
 void creatFormAndSignTwoTimes(void)
 {
 	try {
+		Bureaucrat maria = Bureaucrat("Maria", 30);
 		Form form1 = Form("Form1", 20, 20);
 		std::cout << form1 << std::endl;
-		Bureaucrat maria = Bureaucrat("Maria", 30);
-		form1.beSigned(maria);
+		maria.signForm(form1);
 		std::cout << form1 << std::endl;
-		form1.beSigned(maria);
+		maria.signForm(form1);
 	} 
 	catch (const Form::GradeTooHighException& e) {
 		std::cout << e.what() << std::endl;
