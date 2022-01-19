@@ -6,7 +6,7 @@
 #    By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 14:42:48 by lfrasson          #+#    #+#              #
-#    Updated: 2022/01/19 13:39:45 by lfrasson         ###   ########.fr        #
+#    Updated: 2022/01/19 14:33:36 by lfrasson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ RM := rm -rf
 
 SRCS := Bureaucrat.cpp Form.cpp\
 		ShrubberyCreationForm.cpp\
-		RobotomyRequestForm.cpp
+		RobotomyRequestForm.cpp\
+		PresidentialPardonForm.cpp
 HEADERS := $(SRCS:.cpp=.hpp)
 SRCS += main.cpp
 
