@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 13:56:49 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/19 10:28:00 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/19 10:52:45 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,7 @@ int			Form::getSigned(void) const
 void		Form::beSigned(Bureaucrat bureaucrat)
 {
 	if (this->_signed)
-	{
-		std::cout << "This form has already been signed" << std::endl;
-		return;
-	}
+		throw Form::AlreadySignedException();
 	if (bureaucrat.getGrade() > this->_grade_to_sign)
 		throw Form::GradeTooLowException();
 	this->_signed = true;
@@ -78,7 +75,7 @@ void		Form::beSigned(Bureaucrat bureaucrat)
 void		Form::execute(Bureaucrat& executor) const
 {
 	if (this->getSigned() == false)
-		return;
+		throw Form::NotSignedException();
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw Form::GradeTooLowException();
 	_action();

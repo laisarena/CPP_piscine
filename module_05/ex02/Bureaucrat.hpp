@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 20:45:44 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/18 18:37:24 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/19 11:17:41 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ class Bureaucrat
 		int			_grade;
 
 		void		_checkGrade(void);
-		bool		_hasAlreadySigned(Form& form);
-		bool		_notYetBeenSigned(Form const & form);
 
 	public:
 		Bureaucrat(void);

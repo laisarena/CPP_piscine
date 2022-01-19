@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 10:26:30 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/19 10:31:18 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/19 11:20:14 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 void		ShrubberyCreationForm::_action(void) const
 {
 
-	std::string		name(this->_target);
-	name.append("_shrubbery");
 	std::ofstream	file;
+	std::string		name(this->_target);
+	
+	name.append("_shrubbery");
 	file.open(name.c_str());
 
 	file	<< "               ,@@@@@@@," << std::endl
@@ -55,6 +56,7 @@ void		ShrubberyCreationForm::_action(void) const
 			<< "       |o|        | |         | |" << std::endl
 			<< "       |.|        | |         | |" << std::endl
 			<< "//__\\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_" << std::endl;
+	file.close();
 }
 
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationForm& object)
