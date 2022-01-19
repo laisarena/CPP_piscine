@@ -1,4 +1,3 @@
-/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
@@ -38,7 +37,10 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 
 void		PresidentialPardonForm::_action(void) const
 {
+	std::cout << std::endl
+		<< "*****************************************************" << std::endl;
 	std::cout << this->_target << " has been pardoned by Zafod Beeblebrox." << std::endl;
+	std::cout << "*****************************************************" << std::endl;
 }
 
 PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& object)

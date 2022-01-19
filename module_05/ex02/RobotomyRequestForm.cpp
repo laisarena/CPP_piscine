@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 13:41:48 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/19 14:22:57 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/19 16:48:40 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,15 @@ void		RobotomyRequestForm::_action(void) const
 	srand (time(NULL));
 	success = rand() % 2;
 
+	std::cout << std::endl
+		<< "*****************************************************" << std::endl;
 	std::cout << "rizzzzzzz!!!! rizzz!! rizzzzzzzzzzz!!" << std::endl;
 	if (success)
 		std::cout << this->_target << " has been robotomized successfully." << std::endl;
 	else
 		std::cout << "Unexpected failure during robotization of "
 			<< this->_target << "." << std::endl;
+	std::cout << "*****************************************************" << std::endl;
 }
 
 RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& object)
