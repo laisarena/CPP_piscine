@@ -6,13 +6,14 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 22:31:39 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/19 11:17:20 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/19 14:21:24 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
-
+#include "RobotomyRequestForm.hpp"
+ 
 void tryExecute1(void)
 {
 	try {
@@ -53,6 +54,11 @@ void executeForm(void)
 		ShrubberyCreationForm form1 = ShrubberyCreationForm("home");
 		maria.signForm(form1);
 		jose.executeForm(form1);
+	
+		RobotomyRequestForm form2 = RobotomyRequestForm ("Jorge");
+		maria.signForm(form2);
+		jose.executeForm(form2);
+
 	} 
 	catch (const Form::GradeTooHighException& e) {
 		std::cout << e.what() << std::endl;

@@ -6,7 +6,7 @@
 #    By: lfrasson <lfrasson@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/02 14:42:48 by lfrasson          #+#    #+#              #
-#    Updated: 2022/01/19 10:22:19 by lfrasson         ###   ########.fr        #
+#    Updated: 2022/01/19 13:39:45 by lfrasson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ CFLAGS += -g
 CFLAGS += -std=c++98
 RM := rm -rf
 
-SRCS := Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp
+SRCS := Bureaucrat.cpp Form.cpp\
+		ShrubberyCreationForm.cpp\
+		RobotomyRequestForm.cpp
 HEADERS := $(SRCS:.cpp=.hpp)
 SRCS += main.cpp
 
