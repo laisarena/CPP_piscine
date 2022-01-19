@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 13:56:49 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/17 21:44:19 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/19 10:28:00 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,15 @@ void		Form::beSigned(Bureaucrat bureaucrat)
 	this->_signed = true;
 }
 
+void		Form::execute(Bureaucrat& executor) const
+{
+	if (this->getSigned() == false)
+		return;
+	if (executor.getGrade() > this->getGradeToExecute())
+		throw Form::GradeTooLowException();
+	_action();
+}
+		
 void	Form::_checkGrade(const int& grade)
 {
 	if (grade < 1)

@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 13:47:37 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/17 20:37:11 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/19 10:29:34 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ class Form
 
 		void	_checkGrade(const int& grade);
 
+	protected:
+		virtual void	_action(void) const = 0;
+
 	public:
 		Form(void);
 		Form(std::string name, int grade_to_sign, int grade_to_execute);
@@ -41,8 +44,7 @@ class Form
 		int			getSigned(void) const;
 
 		void		beSigned(Bureaucrat bureaucrat);
-		
-		virtual void		execute(Bureaucrat& executor) const = 0;
+		void		execute(Bureaucrat& executor) const;
 
 		Form&	operator=(const Form& right_side_object);
 

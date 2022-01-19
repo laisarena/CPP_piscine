@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 17:46:07 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/19 10:19:00 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/19 10:41:05 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ class ShrubberyCreationForm: public Form
 		ShrubberyCreationForm(const ShrubberyCreationForm& object);
 		~ShrubberyCreationForm(void);
 		
-		virtual void		execute(Bureaucrat& executor) const;
 		ShrubberyCreationForm&	operator=(const ShrubberyCreationForm& object);
 };
 
