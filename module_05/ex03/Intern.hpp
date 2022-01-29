@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 17:05:42 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/28 21:04:12 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/29 02:08:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Intern
 		void	_defineFormNames(void);
 		void	_defineFormFunctions(void);
 		int		_getFormIndex(std::string name);
+		bool	_invalidName(int index, std::string name);
 		Form*	_makeFormShrubberyCreation(std::string target);
 		Form*	_makeFormRobotomyRequest(std::string target);
 		Form*	_makeFormPresidentialPardon(std::string target);

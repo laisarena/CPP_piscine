@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 17:05:21 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/28 21:04:14 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/29 02:08:28 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void	Intern::_defineFormFunctions(void)
 	return;
 }
 
-static bool	invalidName(int index, std::string name)
+bool	Intern::_invalidName(int index, std::string name)
 {
 	if (index != SIZE)
 		return false;
-	std::cout << "The form \"" << name << "\" not exist."
-			<< std::endl;
+	std::cout << "Intern cannot create the form, because the name \""
+		<< name << "\" not exist." << std::endl;
 	return true;
 }
 
@@ -73,9 +73,12 @@ int	Intern::_getFormIndex(std::string name)
 Form*	Intern::makeForm(std::string form_name, std::string target)
 {
 	int index = _getFormIndex(form_name);
-	if (invalidName(index, form_name))
+	if (_invalidName(index, form_name))
 		return NULL;
-	return (this->*_make_form[index])(target);
+	
+	Form *form = (this->*_make_form[index])(target);
+	std::cout << "Intern creates " << form->getName() << "." << std::endl;
+	return form;
 }
 
 Form*	Intern::_makeFormShrubberyCreation(std::string target)
@@ -95,6 +98,9 @@ Form*	Intern::_makeFormPresidentialPardon(std::string target)
 
 Intern&	Intern::operator=(const Intern& object)
 {
+	this->_form_names = new std::string[SIZE];
+	this->_make_form = new (Form* (Intern::*[SIZE])(std::string));
+
 	for (int i = 0; i < SIZE; i++)
 	{
 		this->_form_names[i] = object._form_names[i];

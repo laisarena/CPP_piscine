@@ -14,6 +14,7 @@ CC := c++
 CFLAGS := -Wall -Wextra -Werror
 CFLAGS += -g
 CFLAGS += -std=c++98
+CFLAGS += -fstandalone-debug
 RM := rm -rf
 
 SRCS := Bureaucrat.cpp Form.cpp\

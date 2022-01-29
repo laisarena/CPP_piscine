@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 13:43:51 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/19 14:02:39 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/29 01:29:46 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ROBOTOMY_REQUEST_FORM_HPP
 
 # include "Form.hpp"
+# include <cstdlib>
 
 class RobotomyRequestForm: public Form
 {
