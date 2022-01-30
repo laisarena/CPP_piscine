@@ -99,7 +99,11 @@ std::ostream& operator<<(std::ostream &output, const Form& right_side_object)
 {
 	output << "The form \""
 			<< right_side_object.getName()
-			<< "\" ";
+			<< "\" has grade "
+			<< right_side_object.getGradeToSign()
+			<< " to sign, "
+			<< right_side_object.getGradeToExecute()
+			<< " to execute, and ";
 	if (right_side_object.getSigned())
 		output << "is signed.";
 	else
