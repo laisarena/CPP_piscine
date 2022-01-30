@@ -29,7 +29,7 @@ void creatForm(int sign, int exec)
 void creatFormAndTrySign(void)
 {
 	try {
-		Bureaucrat maria = Bureaucrat("Maria", 10);
+		Bureaucrat maria = Bureaucrat("Maria", 30);
 		Form form1 = Form("Form1", 20, 20);
 		std::cout << form1 << std::endl;
 		maria.signForm(form1);
@@ -46,7 +46,7 @@ void creatFormAndTrySign(void)
 void creatFormAndSign(void)
 {
 	try {
-		Bureaucrat maria = Bureaucrat("Maria", 30);
+		Bureaucrat maria = Bureaucrat("Maria", 10);
 		Form form1 = Form("Form1", 20, 20);
 		std::cout << form1 << std::endl;
 		maria.signForm(form1);
@@ -63,7 +63,7 @@ void creatFormAndSign(void)
 void creatFormAndSignTwoTimes(void)
 {
 	try {
-		Bureaucrat maria = Bureaucrat("Maria", 30);
+		Bureaucrat maria = Bureaucrat("Maria", 10);
 		Form form1 = Form("Form1", 20, 20);
 		std::cout << form1 << std::endl;
 		maria.signForm(form1);

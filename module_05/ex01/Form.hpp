@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 13:47:37 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/08 20:38:32 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/29 02:38:13 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,14 @@ class Form
 			public:
 				const char* what(void) const throw() {
 					return "* Grade too low *";
+				}
+		};
+		
+		class	AlreadySignedException:	public std::exception
+		{
+			public:
+				const char* what(void) const throw() {
+					return "* This form has already been signed *";
 				}
 		};
 };
