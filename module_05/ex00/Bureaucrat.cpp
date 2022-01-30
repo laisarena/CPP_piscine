@@ -30,7 +30,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade):	_name(name),
 	_checkGrade();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& right_side_object)
+Bureaucrat::Bureaucrat(const Bureaucrat& right_side_object):	_name(right_side_object.getName())
 {
 	*this = right_side_object;
 }
@@ -72,7 +72,6 @@ void	Bureaucrat::_checkGrade(void)
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& right_side_object)
 {
-	this->_name = right_side_object._name;
 	this->_grade = right_side_object._grade;
 	return *this;
 }
