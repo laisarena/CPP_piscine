@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 13:47:37 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/19 10:52:09 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/29 02:38:13 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Form
 		Form(void);
 		Form(std::string name, int grade_to_sign, int grade_to_execute);
 		Form(const Form& rigth_side_object);
-		~Form(void);
+		virtual	~Form(void);
 
 		std::string	getName(void) const;
 		int			getGradeToSign(void) const;

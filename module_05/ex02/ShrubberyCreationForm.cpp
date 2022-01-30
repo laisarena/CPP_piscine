@@ -6,7 +6,7 @@
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 10:26:30 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/01/19 11:20:14 by lfrasson         ###   ########.fr       */
+/*   Updated: 2022/01/29 02:20:58 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
 	return;
 }
-
 
 void		ShrubberyCreationForm::_action(void) const
 {
