@@ -22,7 +22,6 @@ static void	checkNumberOfParameters(int argc)
 		throw InputException();
 }
 
-
 static bool	isChar(std::string input)
 {
 	if (input.size() != 1)
@@ -37,10 +36,24 @@ static bool	isChar(std::string input)
 	return true;
 }
 
+static bool	isInt(char* input)
+{
+	int 		integer;
+	std::string string;
+
+	integer = atoi(input);
+	string = std::to_string(integer);
+	if (input == string)
+		return true;
+	return false;
+}
+
 static int	parseParameter(char* input)
 {
 	if (isChar(input))
 		return CHAR;
+	if (isInt(input))
+		return INT;
 	throw std::exception();
 }
 
