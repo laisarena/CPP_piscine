@@ -36,7 +36,6 @@ static bool	isChar(std::string input)
 		return false;
 
 	char c = *input.c_str();
-
 	if (!isgraph(c))
 		return false;
 	if (isdigit(c))
@@ -56,13 +55,21 @@ static bool	isInt(const char* input)
 	return false;
 }
 
+static bool	firstCharIsNotDigit(std::string number)
+{
+	char	first_char;
+
+	first_char = *number.c_str();
+	return !isdigit(first_char);
+}
+
 static bool	isDouble(std::string input)
 {
 	int pos = input.find('.');
 	std::string inteira = input.substr(0, pos);
 	std::string decimal = input.substr(pos + 1, input.size());
 
-	if (!isdigit(*decimal.c_str()))
+	if (firstCharIsNotDigit(decimal))
 		return false;
 	if (isInt(inteira.c_str()) && isInt(decimal.c_str()))
 		return true;
@@ -76,7 +83,7 @@ static bool	isFloat(std::string input)
 	return(isDouble(input.substr(0, input.size() - 1)));
 }
 
-static int	parseParameter(char* input)
+static int	detectType(char* input)
 {
 	if (isChar(input))
 		return CHAR;
@@ -93,7 +100,8 @@ int	main(int argc, char** argv)
 {
 	try {
 		checkNumberOfParameters(argc);
-		int type = parseParameter(argv[1]);
+		int type = detectType(argv[1]);
+
 		std::cout << type << std::endl;
 	}
 	catch (std::exception& e){
