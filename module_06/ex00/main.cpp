@@ -5,8 +5,8 @@
 
 #define CHAR	0
 #define INT		1
-#define FLOAT	2
-#define DOUBLE	3
+#define DOUBLE	2
+#define FLOAT	3
 
 class	InputException:	public std::exception
 {
@@ -61,6 +61,13 @@ static bool	isDouble(std::string input)
 	return false;
 }
 
+static bool	isFloat(std::string input)
+{
+	if (input[input.size() - 1] != 'f')
+		return false;
+	return(isDouble(input.substr(0, input.size() - 1)));
+}
+
 static int	parseParameter(char* input)
 {
 	if (isChar(input))
@@ -69,6 +76,8 @@ static int	parseParameter(char* input)
 		return INT;
 	else if (isDouble(input))
 		return DOUBLE;
+	else if (isFloat(input))
+		return FLOAT;
 	throw std::exception();
 }
 
