@@ -36,7 +36,7 @@ static bool	isChar(std::string input)
 	return true;
 }
 
-static bool	isInt(char* input)
+static bool	isInt(const char* input)
 {
 	int 		integer;
 	std::string string;
@@ -48,12 +48,27 @@ static bool	isInt(char* input)
 	return false;
 }
 
+static bool	isDouble(std::string input)
+{
+	int pos = input.find('.');
+	std::string inteira = input.substr(0, pos);
+	std::string decimal = input.substr(pos + 1, input.size());
+
+	if (!isdigit(*decimal.c_str()))
+		return false;
+	if (isInt(inteira.c_str()) && isInt(decimal.c_str()))
+		return true;
+	return false;
+}
+
 static int	parseParameter(char* input)
 {
 	if (isChar(input))
 		return CHAR;
-	if (isInt(input))
+	else if (isInt(input))
 		return INT;
+	else if (isDouble(input))
+		return DOUBLE;
 	throw std::exception();
 }
 
@@ -62,7 +77,7 @@ int	main(int argc, char** argv)
 	try {
 		checkNumberOfParameters(argc);
 		int type = parseParameter(argv[1]);
-		type++;
+		std::cout << type << std::endl;
 	}
 	catch (std::exception& e){
 		std::cout << e.what() << std::endl; 
