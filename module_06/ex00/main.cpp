@@ -16,6 +16,14 @@ class	InputException:	public std::exception
 		}
 };
 
+class	TypeException:	public std::exception
+{
+	public:
+		const char* what(void) const throw() {
+			return "Error: The input is not a scalar type";
+		}
+};
+
 static void	checkNumberOfParameters(int argc)
 {
 	if (argc != 2)
@@ -78,7 +86,7 @@ static int	parseParameter(char* input)
 		return DOUBLE;
 	else if (isFloat(input))
 		return FLOAT;
-	throw std::exception();
+	throw TypeException();
 }
 
 int	main(int argc, char** argv)
