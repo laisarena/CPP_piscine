@@ -28,6 +28,11 @@ Char::Char(char* literal):  Scalar(literal)
     _char = *_literal;
 }
 
+Char::Char(int int_value):  Scalar(NULL)
+{
+    _char = static_cast<char>(int_value);
+}
+
 Char::~Char(void)
 {
     return;
@@ -46,6 +51,10 @@ Char&   Char::operator=(const Char& object)
 
 std::ostream&   operator<<(std::ostream& output, const Char& object)
 {
-    output << object.getChar();        
+    char c = object.getChar();
+
+	if (!isgraph(c))
+        output << "Non displayable";
+    output << c;
     return output;
 }

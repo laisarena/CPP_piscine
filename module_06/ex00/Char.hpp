@@ -27,6 +27,7 @@ class   Char: public Scalar
     public:
         Char(void);
         Char(char* literal);
+        Char(int int_value);
         ~Char(void);
 
         char    getChar(void) const;

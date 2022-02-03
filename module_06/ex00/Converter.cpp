@@ -61,6 +61,7 @@ void    Converter::_fromChar(void)
 void    Converter::_fromInt(void)
 {
     _int = Int(_literal);
+    _char = Char(_int.getInt());
 }
 
 void    Converter::_fromFloat(void)
