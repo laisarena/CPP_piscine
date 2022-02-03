@@ -22,6 +22,7 @@
 # include <cctype>
 # include <iostream>
 # include "Char.hpp"
+# include "Int.hpp"
 
 class   Converter
 {
@@ -29,7 +30,7 @@ class   Converter
         char*   _literal;
         int     _type;
         Char    _char;
-        int     _int;
+        Int     _int;
         double  _double;
         float   _float;
 

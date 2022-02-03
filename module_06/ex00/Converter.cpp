@@ -60,9 +60,7 @@ void    Converter::_fromChar(void)
 
 void    Converter::_fromInt(void)
 {
-    _int = atoi(_literal);
-    _float = (float)_int;
-    _double = (double)_int;
+    _int = Int(_literal);
 }
 
 void    Converter::_fromFloat(void)
