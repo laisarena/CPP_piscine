@@ -21,13 +21,14 @@
 # include <string>
 # include <cctype>
 # include <iostream>
+# include "Char.hpp"
 
 class   Converter
 {
     private:
         char*   _literal;
         int     _type;
-        char    _char;
+        Char    _char;
         int     _int;
         double  _double;
         float   _float;

@@ -55,10 +55,7 @@ Converter::~Converter(void)
 
 void    Converter::_fromChar(void)
 {
-    _char = *_literal;
-    _int = (int)_char;
-    _float = (float)_char;
-    _double = (double)_char;
+    _char = Char(_literal);
 }
 
 void    Converter::_fromInt(void)
