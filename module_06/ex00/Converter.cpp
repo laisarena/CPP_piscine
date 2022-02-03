@@ -1,0 +1,93 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Converter.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/02 20:38:26 by lfrasson          #+#    #+#             */
+/*   Updated: 2022/02/02 20:38:29 by lfrasson         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Converter.hpp"
+
+Converter::Converter(void)
+{
+    return;
+}
+
+Converter::Converter(const Converter& object)
+{
+    *this = object;
+    return;
+}
+
+Converter::Converter(char* literal, int type):  _literal(literal),
+                                                _type(type)
+{
+    switch (_type) 
+    {
+        case CHAR:
+            _fromChar();
+            break;
+        case INT:
+            _fromInt();
+            break;
+        case DOUBLE:
+            _fromDouble();
+            break;
+        case FLOAT:
+            _fromFloat();
+            break;
+        default:
+            throw std::exception();
+            break;
+    }
+    
+    return;
+}
+
+Converter::~Converter(void)
+{
+    return;
+}
+
+void    Converter::_fromChar(void)
+{
+    _char = *_literal;
+    _int = (int)_char;
+    _float = (float)_char;
+    _double = (double)_char;
+}
+
+void    Converter::_fromInt(void)
+{
+    _int = atoi(_literal);
+    _float = (float)_int;
+    _double = (double)_int;
+}
+
+void    Converter::_fromFloat(void)
+{
+    _float = atof(_literal);
+}
+
+void    Converter::_fromDouble(void)
+{
+    _double = atof(_literal);
+}
+
+void    Converter::show(void)
+{
+    std::cout << "char: " << _char << std::endl;
+    std::cout << "int: " << _int << std::endl;
+    std::cout << "float: " << _float << std::endl;
+    std::cout << "double: " << _double << std::endl;
+}
+
+Converter&   Converter::operator=(const Converter& object)
+{
+    (void)object;
+    return *this;
+}

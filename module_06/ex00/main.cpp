@@ -1,12 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/02 20:38:02 by lfrasson          #+#    #+#             */
+/*   Updated: 2022/02/02 20:38:08 by lfrasson         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <exception>
 #include <iostream>
 #include <string>
 #include <cctype>
-
-#define CHAR	0
-#define INT		1
-#define DOUBLE	2
-#define FLOAT	3
+#include "Converter.hpp" 
 
 class	InputException:	public std::exception
 {
@@ -101,8 +109,8 @@ int	main(int argc, char** argv)
 	try {
 		checkNumberOfParameters(argc);
 		int type = detectType(argv[1]);
-
-		std::cout << type << std::endl;
+		Converter converter(argv[1], type);
+		converter.show();
 	}
 	catch (std::exception& e){
 		std::cout << e.what() << std::endl; 
