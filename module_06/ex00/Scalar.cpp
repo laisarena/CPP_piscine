@@ -12,18 +12,21 @@
 
 #include "Scalar.hpp"
 
-Scalar::Scalar(void): _literal(NULL)
+Scalar::Scalar(void):   _literal(NULL),
+                        _impossible(false)
 {
     return;
 }
 
-Scalar::Scalar(const Scalar& object): _literal(object.getLiteral())
+Scalar::Scalar(const Scalar& object):   _literal(object.getLiteral()),
+                                        _impossible(false)
 {
     *this = object;
     return;
 }
 
-Scalar::Scalar(const char* literal):  _literal(literal)
+Scalar::Scalar(const char* literal):    _literal(literal),
+                                        _impossible(false)
 {
     return;
 }
@@ -38,8 +41,19 @@ const char* Scalar::getLiteral() const
     return _literal;   
 }
 
+bool    Scalar::getImpossible() const
+{
+    return _impossible;
+}
+
+void    Scalar::setImpossible(void)
+{
+    _impossible = true;
+}
+
 Scalar&   Scalar::operator=(const Scalar& object)
 {
-    (void)object;
+    this->_literal = object.getLiteral();
+    this->_impossible = object.getImpossible();
     return *this;
 }

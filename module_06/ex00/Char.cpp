@@ -25,11 +25,13 @@ Char::Char(const Char& object): Scalar(object.getLiteral())
 
 Char::Char(char* literal):  Scalar(literal)
 {
-    _char = *_literal;
+    _char = *(getLiteral());
 }
 
 Char::Char(int int_value):  Scalar(NULL)
 {
+    if (_willOverflow(int_value))
+        setImpossible();
     _char = static_cast<char>(int_value);
 }
 
@@ -38,13 +40,24 @@ Char::~Char(void)
     return;
 }
 
-char    Char::getChar(void) const
+unsigned char   Char::getChar(void) const
 {
     return _char;
 }
 
+bool    Char::_willOverflow(long double value)
+{
+    if (value > UCHAR_MAX)
+        return true;
+    if (value < 0)
+        return true;
+    return false;
+}
+
 Char&   Char::operator=(const Char& object)
 {
+    if (object.getImpossible())
+        this->setImpossible();
     this->_char = object.getChar();
     return *this;
 }
@@ -53,8 +66,11 @@ std::ostream&   operator<<(std::ostream& output, const Char& object)
 {
     char c = object.getChar();
 
-	if (!isgraph(c))
+    if (object.getImpossible())
+        output << "Impossible";
+	else if (!isgraph(c))
         output << "Non displayable";
-    output << c;
+    else
+        output << c;
     return output;
 }

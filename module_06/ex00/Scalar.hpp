@@ -15,14 +15,16 @@
 
 # include <cctype>
 # include <iostream>
+# include <climits>
 
 class   Scalar
 {
     private:
+        const char* _literal;
+        bool        _impossible;
         Scalar(const Scalar& object);
     
-    protected:
-        const char* _literal;
+        virtual bool    _willOverflow(long double value) = 0;
 
     public:
         Scalar(void);
@@ -30,6 +32,8 @@ class   Scalar
         ~Scalar(void);
 
         const char* getLiteral() const;
+        bool        getImpossible() const;
+        void        setImpossible(void);
 
         Scalar&  operator=(const Scalar& object);
 };

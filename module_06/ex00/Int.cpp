@@ -25,7 +25,7 @@ Int::Int(const Int& object): Scalar(object.getLiteral())
 
 Int::Int(char* literal):  Scalar(literal)
 {
-    _int = atoi(_literal);
+    _int = atoi(getLiteral());
 }
 
 Int::~Int(void)
@@ -38,8 +38,19 @@ int    Int::getInt(void) const
     return _int;
 }
 
+bool    Int::_willOverflow(long double value)
+{
+    if (value > INT_MAX)
+        return true;
+    if (value < INT_MIN)
+        return true;
+    return false;
+}
+
 Int&   Int::operator=(const Int& object)
 {
+    if (object.getImpossible())
+        this->setImpossible();
     this->_int = object.getInt();
     return *this;
 }

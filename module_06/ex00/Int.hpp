@@ -23,6 +23,8 @@ class   Int: public Scalar
         int _int;
 
         Int(const Int& object);
+
+        bool    _willOverflow(long double value);
     
     public:
         Int(void);

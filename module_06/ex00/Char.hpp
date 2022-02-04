@@ -20,9 +20,11 @@
 class   Char: public Scalar
 {
     private:
-        char    _char;
+        unsigned char   _char;
 
         Char(const Char& object);
+
+        bool    _willOverflow(long double value);
     
     public:
         Char(void);
@@ -30,7 +32,7 @@ class   Char: public Scalar
         Char(int int_value);
         ~Char(void);
 
-        char    getChar(void) const;
+        unsigned char   getChar(void) const;
 
         Char&   operator=(const Char& object);
 };
