@@ -23,6 +23,7 @@
 # include <iostream>
 # include "Char.hpp"
 # include "Int.hpp"
+# include "Float.hpp"
 
 class   Converter
 {
@@ -31,8 +32,8 @@ class   Converter
         int     _type;
         Char    _char;
         Int     _int;
+        Float   _float;
         double  _double;
-        float   _float;
 
         void    _fromChar(void);
         void    _fromInt(void);

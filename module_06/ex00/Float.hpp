@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Int.hpp                                            :+:      :+:    :+:   */
+/*   Float.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 15:58:44 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/02/03 15:58:46 by lfrasson         ###   ########.fr       */
+/*   Created: 2022/02/04 20:06:04 by lfrasson          #+#    #+#             */
+/*   Updated: 2022/02/04 20:06:06 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INT_HPP
-# define INT_HPP
+#ifndef FLOAT_HPP
+# define FLOAT_HPP
 
 # include <cctype>
 # include <iostream>
 # include "Scalar.hpp"
 
-class   Int: public Scalar
+class   Float: public Scalar
 {
     private:
-        int _int;
+        float _float;
 
-        Int(const Int& object);
+        Float(const Float& object);
 
         bool    _willOverflow(long double value);
     
     public:
-        Int(void);
-        Int(char* literal);
-        Int(unsigned char c);
-        Int(float float_value);
-        Int(double double_value);
-        ~Int(void);
+        Float(void);
+        Float(char* literal);
+        Float(char c);
+        Float(int int_value);
+        Float(double double_value);
+        ~Float(void);
 
-        int getInt(void) const;
+        float getFloat(void) const;
 
-        Int&    operator=(const Int& object);
+        Float&    operator=(const Float& object);
 };
 
-std::ostream&   operator<<(std::ostream& output, const Int& object);
+std::ostream&   operator<<(std::ostream& output, const Float& object);
 
 #endif

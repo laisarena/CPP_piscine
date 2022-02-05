@@ -56,17 +56,26 @@ Converter::~Converter(void)
 void    Converter::_fromChar(void)
 {
     _char = Char(_literal);
+    _int = Int(_char.getChar());
+    _float = Float(_char.getChar());
+    // _double = Double(_char.getChar());
+
 }
 
 void    Converter::_fromInt(void)
 {
     _int = Int(_literal);
     _char = Char(_int.getInt());
+    _float = Float(_int.getInt());
+    // _double = Double(_int.getInt());
 }
 
 void    Converter::_fromFloat(void)
 {
-    _float = atof(_literal);
+    _float = Float(_literal);
+    _char = Char(_float.getFloat());
+    _int = Int(_float.getFloat());
+    // _double = Double(_int.getInt());
 }
 
 void    Converter::_fromDouble(void)

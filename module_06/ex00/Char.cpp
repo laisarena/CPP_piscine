@@ -35,6 +35,20 @@ Char::Char(int int_value):  Scalar(NULL)
     _char = static_cast<char>(int_value);
 }
 
+Char::Char(float float_value):  Scalar(NULL)
+{
+    if (_willOverflow(float_value))
+        setImpossible();
+    _char = static_cast<char>(float_value);
+}
+
+Char::Char(double double_value):  Scalar(NULL)
+{
+    if (_willOverflow(double_value))
+        setImpossible();
+    _char = static_cast<char>(double_value);
+}
+
 Char::~Char(void)
 {
     return;

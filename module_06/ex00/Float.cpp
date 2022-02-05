@@ -1,59 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Int.cpp                                            :+:      :+:    :+:   */
+/*   Float.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 15:58:34 by lfrasson          #+#    #+#             */
-/*   Updated: 2022/02/03 15:58:36 by lfrasson         ###   ########.fr       */
+/*   Created: 2022/02/04 20:05:51 by lfrasson          #+#    #+#             */
+/*   Updated: 2022/02/04 20:05:54 by lfrasson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Int.hpp"
+#include "Float.hpp"
 
-Int::Int(void)
+Float::Float(void)
 {
     return;
 }
 
-Int::Int(const Int& object): Scalar(object.getLiteral())
+Float::Float(const Float& object): Scalar(object.getLiteral())
 {
     *this = object;
     return;
 }
 
-Int::Int(char* literal):  Scalar(literal)
+Float::Float(char* literal):  Scalar(literal)
 {
-    _int = atoi(getLiteral());
+    _float = atof(getLiteral());
 }
 
-Int::Int(unsigned char c)
+Float::Float(char c):  Scalar(NULL)
 {
-    _int = static_cast<int>(c);
+    _float = static_cast<float>(c);
 }
 
-Int::Int(float float_value)
+Float::Float(int int_value):  Scalar(NULL)
 {
-    _int = static_cast<int>(float_value);
+    _float = static_cast<float>(int_value);
 }
 
-Int::Int(double double_value)
+Float::Float(double double_value):  Scalar(NULL)
 {
-    _int = static_cast<int>(double_value);
+    _float = static_cast<float>(double_value);
 }
 
-Int::~Int(void)
+Float::~Float(void)
 {
     return;
 }
 
-int    Int::getInt(void) const
+float    Float::getFloat(void) const
 {
-    return _int;
+    return _float;
 }
 
-bool    Int::_willOverflow(long double value)
+bool    Float::_willOverflow(long double value)
 {
     if (value > INT_MAX)
         return true;
@@ -62,18 +62,19 @@ bool    Int::_willOverflow(long double value)
     return false;
 }
 
-Int&   Int::operator=(const Int& object)
+Float&   Float::operator=(const Float& object)
 {
     if (object.getImpossible())
         this->setImpossible();
-    this->_int = object.getInt();
+    this->_float = object.getFloat();
     return *this;
 }
 
-std::ostream&   operator<<(std::ostream& output, const Int& object)
+std::ostream&   operator<<(std::ostream& output, const Float& object)
 {
     if (object.getImpossible())
         output << "Impossible";
-    output << object.getInt();        
+    else
+        output << object.getFloat() << "f";
     return output;
 }

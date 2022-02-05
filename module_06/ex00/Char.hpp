@@ -30,6 +30,8 @@ class   Char: public Scalar
         Char(void);
         Char(char* literal);
         Char(int int_value);
+        Char(float float_value);
+        Char(double double_value);
         ~Char(void);
 
         unsigned char   getChar(void) const;

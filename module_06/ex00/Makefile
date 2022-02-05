@@ -6,7 +6,7 @@
 #    By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/30 19:26:46 by lfrasson          #+#    #+#              #
-#    Updated: 2022/01/31 19:20:27 by lfrasson         ###   ########.fr        #
+#    Updated: 2022/02/04 20:12:15 by lfrasson         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS += -g
 CFLAGS += -std=c++98
 RM := rm -rf
 
-SRCS := Scalar.cpp Char.cpp Int.cpp Converter.cpp 
+SRCS := Scalar.cpp Char.cpp Int.cpp Float.cpp Converter.cpp 
 HEADERS := $(SRCS:.cpp=.hpp)
 SRCS += main.cpp
 
