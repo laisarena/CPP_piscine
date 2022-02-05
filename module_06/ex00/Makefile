@@ -18,7 +18,7 @@ CFLAGS += -g
 CFLAGS += -std=c++98
 RM := rm -rf
 
-SRCS := Scalar.cpp Char.cpp Int.cpp Float.cpp Converter.cpp 
+SRCS := Scalar.cpp Char.cpp Int.cpp Float.cpp Double.cpp Converter.cpp 
 HEADERS := $(SRCS:.cpp=.hpp)
 SRCS += main.cpp
 

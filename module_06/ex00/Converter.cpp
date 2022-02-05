@@ -44,7 +44,6 @@ Converter::Converter(char* literal, int type):  _literal(literal),
             throw std::exception();
             break;
     }
-    
     return;
 }
 
@@ -58,7 +57,7 @@ void    Converter::_fromChar(void)
     _char = Char(_literal);
     _int = Int(_char.getChar());
     _float = Float(_char.getChar());
-    // _double = Double(_char.getChar());
+    _double = Double(_char.getChar());
 
 }
 
@@ -67,7 +66,7 @@ void    Converter::_fromInt(void)
     _int = Int(_literal);
     _char = Char(_int.getInt());
     _float = Float(_int.getInt());
-    // _double = Double(_int.getInt());
+    _double = Double(_int.getInt());
 }
 
 void    Converter::_fromFloat(void)
@@ -75,12 +74,15 @@ void    Converter::_fromFloat(void)
     _float = Float(_literal);
     _char = Char(_float.getFloat());
     _int = Int(_float.getFloat());
-    // _double = Double(_int.getInt());
+    _double = Double(_int.getInt());
 }
 
 void    Converter::_fromDouble(void)
 {
-    _double = atof(_literal);
+    _double = Double(_literal);
+    _char = Char(_double.getDouble());
+    _int = Int(_double.getDouble());
+    _float = Float(_double.getDouble());
 }
 
 void    Converter::show(void)

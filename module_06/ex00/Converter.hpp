@@ -24,6 +24,7 @@
 # include "Char.hpp"
 # include "Int.hpp"
 # include "Float.hpp"
+# include "Double.hpp"
 
 class   Converter
 {
@@ -33,7 +34,7 @@ class   Converter
         Char    _char;
         Int     _int;
         Float   _float;
-        double  _double;
+        Double  _double;
 
         void    _fromChar(void);
         void    _fromInt(void);
