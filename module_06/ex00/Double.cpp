@@ -75,6 +75,6 @@ std::ostream&   operator<<(std::ostream& output, const Double& object)
     if (object.getImpossible())
         output << "Impossible";
     else
-        output << object.getDouble();
+        output << std::setprecision(1) << std::fixed << object.getDouble();
     return output;
 }

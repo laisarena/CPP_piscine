@@ -75,6 +75,6 @@ std::ostream&   operator<<(std::ostream& output, const Float& object)
     if (object.getImpossible())
         output << "Impossible";
     else
-        output << object.getFloat() << "f";
+        output << std::setprecision(1) << std::fixed << object.getFloat() << "f";
     return output;
 }
