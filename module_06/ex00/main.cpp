@@ -51,35 +51,45 @@ static bool	isChar(std::string input)
 	return true;
 }
 
-static bool	isInt(const char* input)
+static bool isNumeric(const char* input)
 {
-	int 		integer;
-	std::string string;
+	if (!(*input))
+		return false;
+	while (*input)
+	{
+		if (!isdigit(*input))
+			return false;
+		input++;
+	}
+	return true;
+}
 
-	integer = atoi(input);
-	string = std::to_string(integer);
-	if (input == string)
+static bool	firstCharIsSign(const char* input)
+{
+	if (*input == '-')
 		return true;
 	return false;
 }
 
-static bool	firstCharIsNotDigit(std::string number)
+static bool	isInt(const char* input)
 {
-	char	first_char;
-
-	first_char = *number.c_str();
-	return !isdigit(first_char);
+	if (firstCharIsSign(input))
+		input++;
+	if (isNumeric(input))
+		return true;
+	return false;
 }
 
 static bool	isDouble(std::string input)
 {
 	int pos = input.find('.');
+	if (pos == -1)
+		return false;
+
 	std::string inteira = input.substr(0, pos);
 	std::string decimal = input.substr(pos + 1, input.size());
 
-	if (firstCharIsNotDigit(decimal))
-		return false;
-	if (isInt(inteira.c_str()) && isInt(decimal.c_str()))
+	if (isInt(inteira.c_str()) && isNumeric(decimal.c_str()))
 		return true;
 	return false;
 }
