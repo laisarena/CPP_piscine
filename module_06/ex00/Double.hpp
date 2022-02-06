@@ -22,6 +22,7 @@ class   Double: public Scalar
 {
     private:
         double  _double;
+        bool    _set_precision;
 
         Double(const Double& object);
 
@@ -36,6 +37,7 @@ class   Double: public Scalar
         ~Double(void);
 
         double  getDouble(void) const;
+        bool    getPrecision(void) const;
 
         Double&    operator=(const Double& object);
 };

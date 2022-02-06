@@ -21,7 +21,8 @@
 class   Float: public Scalar
 {
     private:
-        float _float;
+        float   _float;
+        bool    _set_precision;
 
         Float(const Float& object);
 
@@ -35,7 +36,8 @@ class   Float: public Scalar
         Float(double double_value);
         ~Float(void);
 
-        float getFloat(void) const;
+        float   getFloat(void) const;
+        bool    getPrecision(void) const;
 
         Float&    operator=(const Float& object);
 };

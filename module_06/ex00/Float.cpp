@@ -23,22 +23,26 @@ Float::Float(const Float& object): Scalar(object.getLiteral())
     return;
 }
 
-Float::Float(char* literal):  Scalar(literal)
+Float::Float(char* literal):    Scalar(literal),
+                                _set_precision(false)
 {
     _float = atof(getLiteral());
 }
 
-Float::Float(char c):  Scalar(NULL)
+Float::Float(char c):   Scalar(NULL),
+                        _set_precision(true)
 {
     _float = static_cast<float>(c);
 }
 
-Float::Float(int int_value):  Scalar(NULL)
+Float::Float(int int_value):    Scalar(NULL),
+                                _set_precision(true)
 {
     _float = static_cast<float>(int_value);
 }
 
-Float::Float(double double_value):  Scalar(NULL)
+Float::Float(double double_value):  Scalar(NULL),
+                                    _set_precision(false)
 {
     _float = static_cast<float>(double_value);
 }
@@ -51,6 +55,11 @@ Float::~Float(void)
 float    Float::getFloat(void) const
 {
     return _float;
+}
+
+bool    Float::getPrecision(void) const
+{
+    return _set_precision;
 }
 
 bool    Float::_willOverflow(long double value)
@@ -67,14 +76,20 @@ Float&   Float::operator=(const Float& object)
     if (object.getImpossible())
         this->setImpossible();
     this->_float = object.getFloat();
+    this->_set_precision = object.getPrecision();
     return *this;
 }
 
 std::ostream&   operator<<(std::ostream& output, const Float& object)
 {
     if (object.getImpossible())
+    {
         output << "Impossible";
-    else
+        return output;
+    }
+    if (object.getPrecision())
         output << std::setprecision(1) << std::fixed << object.getFloat() << "f";
+    else
+        output << object.getFloat() << "f";
     return output;
 }

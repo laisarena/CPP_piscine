@@ -23,22 +23,26 @@ Double::Double(const Double& object): Scalar(object.getLiteral())
     return;
 }
 
-Double::Double(char* literal):  Scalar(literal)
+Double::Double(char* literal):  Scalar(literal),
+                                _set_precision(false)
 {
     _double = atof(getLiteral());
 }
 
-Double::Double(char c):  Scalar(NULL)
+Double::Double(char c): Scalar(NULL),
+                        _set_precision(true)
 {
     _double = static_cast<double>(c);
 }
 
-Double::Double(int int_value):  Scalar(NULL)
+Double::Double(int int_value):  Scalar(NULL),
+                                _set_precision(true)
 {
     _double = static_cast<double>(int_value);
 }
 
-Double::Double(float float_value):  Scalar(NULL)
+Double::Double(float float_value):  Scalar(NULL),
+                                    _set_precision(false)
 {
     _double = static_cast<double>(float_value);
 }
@@ -51,6 +55,11 @@ Double::~Double(void)
 double    Double::getDouble(void) const
 {
     return _double;
+}
+
+bool    Double::getPrecision(void) const
+{
+    return _set_precision;
 }
 
 bool    Double::_willOverflow(long double value)
@@ -67,14 +76,20 @@ Double&   Double::operator=(const Double& object)
     if (object.getImpossible())
         this->setImpossible();
     this->_double = object.getDouble();
+    this->_set_precision = object.getPrecision();
     return *this;
 }
 
 std::ostream&   operator<<(std::ostream& output, const Double& object)
 {
     if (object.getImpossible())
+    {
         output << "Impossible";
-    else
+        return output;
+    }
+    if (object.getPrecision())
         output << std::setprecision(1) << std::fixed << object.getDouble();
+    else
+        output << object.getDouble();
     return output;
 }
