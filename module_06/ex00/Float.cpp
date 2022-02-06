@@ -73,8 +73,7 @@ bool    Float::_willOverflow(long double value)
 
 Float&   Float::operator=(const Float& object)
 {
-    if (object.getImpossible())
-        this->setImpossible();
+    this->setImpossible(object.getImpossible());
     this->_float = object.getFloat();
     this->_set_precision = object.getPrecision();
     return *this;

@@ -31,21 +31,21 @@ Char::Char(char* literal):  Scalar(literal)
 Char::Char(int int_value):  Scalar(NULL)
 {
     if (_willOverflow(int_value))
-        setImpossible();
+        setImpossible(true);
     _char = static_cast<char>(int_value);
 }
 
 Char::Char(float float_value):  Scalar(NULL)
 {
     if (_willOverflow(float_value))
-        setImpossible();
+        setImpossible(true);
     _char = static_cast<char>(float_value);
 }
 
 Char::Char(double double_value):  Scalar(NULL)
 {
     if (_willOverflow(double_value))
-        setImpossible();
+        setImpossible(true);
     _char = static_cast<char>(double_value);
 }
 
@@ -70,8 +70,7 @@ bool    Char::_willOverflow(long double value)
 
 Char&   Char::operator=(const Char& object)
 {
-    if (object.getImpossible())
-        this->setImpossible();
+    this->setImpossible(object.getImpossible());
     this->_char = object.getChar();
     return *this;
 }

@@ -64,8 +64,7 @@ bool    Int::_willOverflow(long double value)
 
 Int&   Int::operator=(const Int& object)
 {
-    if (object.getImpossible())
-        this->setImpossible();
+    this->setImpossible(object.getImpossible());
     this->_int = object.getInt();
     return *this;
 }

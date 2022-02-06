@@ -33,7 +33,7 @@ class   Scalar
 
         const char* getLiteral() const;
         bool        getImpossible() const;
-        void        setImpossible(void);
+        void        setImpossible(bool impossible);
 
         Scalar&  operator=(const Scalar& object);
 };

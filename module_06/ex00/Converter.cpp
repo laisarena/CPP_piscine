@@ -74,7 +74,7 @@ void    Converter::_fromFloat(void)
     _float = Float(_literal);
     _char = Char(_float.getFloat());
     _int = Int(_float.getFloat());
-    _double = Double(_int.getInt());
+    _double = Double(_float.getFloat());
 }
 
 void    Converter::_fromDouble(void)

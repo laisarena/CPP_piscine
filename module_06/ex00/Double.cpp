@@ -73,8 +73,7 @@ bool    Double::_willOverflow(long double value)
 
 Double&   Double::operator=(const Double& object)
 {
-    if (object.getImpossible())
-        this->setImpossible();
+    this->setImpossible(object.getImpossible());
     this->_double = object.getDouble();
     this->_set_precision = object.getPrecision();
     return *this;

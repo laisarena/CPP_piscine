@@ -46,9 +46,9 @@ bool    Scalar::getImpossible() const
     return _impossible;
 }
 
-void    Scalar::setImpossible(void)
+void    Scalar::setImpossible(bool impossible)
 {
-    _impossible = true;
+    _impossible = impossible;
 }
 
 Scalar&   Scalar::operator=(const Scalar& object)
