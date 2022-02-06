@@ -27,6 +27,7 @@ Double::Double(char* literal):  Scalar(literal),
                                 _set_precision(false)
 {
     _double = atof(getLiteral());
+    _checkIfNeedSetPrecision(literal);
 }
 
 Double::Double(char c): Scalar(NULL),
@@ -69,6 +70,13 @@ bool    Double::_willOverflow(long double value)
     if (value < INT_MIN)
         return true;
     return false;
+}
+
+void    Double::_checkIfNeedSetPrecision(std::string literal)
+{
+	int pos = std::string(literal).find('.');
+    if (pos != -1)
+        _set_precision = true;
 }
 
 Double&   Double::operator=(const Double& object)

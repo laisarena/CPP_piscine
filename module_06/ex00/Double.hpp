@@ -27,6 +27,7 @@ class   Double: public Scalar
         Double(const Double& object);
 
         bool    _willOverflow(long double value);
+        void    _checkIfNeedSetPrecision(std::string literal);
     
     public:
         Double(void);

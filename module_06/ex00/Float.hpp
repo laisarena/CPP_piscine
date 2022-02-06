@@ -27,6 +27,7 @@ class   Float: public Scalar
         Float(const Float& object);
 
         bool    _willOverflow(long double value);
+        void    _checkIfNeedSetPrecision(std::string literal);
     
     public:
         Float(void);
