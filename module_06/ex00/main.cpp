@@ -101,6 +101,17 @@ static bool	isFloat(std::string input)
 	return(isDouble(input.substr(0, input.size() - 1)));
 }
 
+static bool	isPseudo(std::string input)
+{
+	if (input == "nan" || input == "nanf")
+		return true;
+	if (input == "+inf" || input == "+inff")
+		return true;
+	if (input == "-inf" || input == "-inff")
+		return true;
+	return false;
+}
+
 static int	detectType(char* input)
 {
 	if (isChar(input))
@@ -111,6 +122,8 @@ static int	detectType(char* input)
 		return DOUBLE;
 	else if (isFloat(input))
 		return FLOAT;
+	else if (isPseudo(input))
+		return PSEUDO;
 	throw TypeException();
 }
 

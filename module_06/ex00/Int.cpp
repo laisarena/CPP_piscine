@@ -43,6 +43,11 @@ Int::Int(double double_value)
     _int = static_cast<int>(double_value);
 }
 
+Int::Int(Pseudo pseudo):    Scalar(pseudo)
+{
+    setImpossible(true);
+}
+
 Int::~Int(void)
 {
     return;
@@ -64,8 +69,9 @@ bool    Int::_willOverflow(long double value)
 
 Int&   Int::operator=(const Int& object)
 {
-    this->setImpossible(object.getImpossible());
     this->_int = object.getInt();
+    this->setImpossible(object.getImpossible());
+    this->setPseudo(object.getPseudo());
     return *this;
 }
 
@@ -73,6 +79,7 @@ std::ostream&   operator<<(std::ostream& output, const Int& object)
 {
     if (object.getImpossible())
         output << "Impossible";
-    output << object.getInt();        
+    else
+        output << object.getInt();        
     return output;
 }

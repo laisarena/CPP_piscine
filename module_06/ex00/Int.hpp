@@ -32,6 +32,7 @@ class   Int: public Scalar
         Int(unsigned char c);
         Int(float float_value);
         Int(double double_value);
+        Int(Pseudo pseudo);
         ~Int(void);
 
         int getInt(void) const;

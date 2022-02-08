@@ -16,12 +16,15 @@
 # include <cctype>
 # include <iostream>
 # include <climits>
+# include "Pseudo.hpp"
 
 class   Scalar
 {
     private:
         const char* _literal;
         bool        _impossible;
+        Pseudo      _pseudo;
+
         Scalar(const Scalar& object);
     
         virtual bool    _willOverflow(long double value) = 0;
@@ -29,11 +32,16 @@ class   Scalar
     public:
         Scalar(void);
         Scalar(const char* literal);
+        Scalar(Pseudo pseudo);
         ~Scalar(void);
 
         const char* getLiteral() const;
         bool        getImpossible() const;
+        Pseudo      getPseudo() const;
         void        setImpossible(bool impossible);
+        void        setPseudo(Pseudo pseudo);
+
+        bool        isPseudo() const;
 
         Scalar&  operator=(const Scalar& object);
 };

@@ -17,6 +17,7 @@
 # define INT    1
 # define DOUBLE	2
 # define FLOAT	3
+# define PSEUDO	4
 
 # include <string>
 # include <cctype>
@@ -25,6 +26,7 @@
 # include "Int.hpp"
 # include "Float.hpp"
 # include "Double.hpp"
+# include "Pseudo.hpp"
 
 class   Converter
 {
@@ -35,11 +37,13 @@ class   Converter
         Int     _int;
         Float   _float;
         Double  _double;
+        Pseudo  _pseudo;
 
         void    _fromChar(void);
         void    _fromInt(void);
         void    _fromDouble(void);
         void    _fromFloat(void);
+        void    _fromPseudo(void);
 
         Converter(void);
         Converter(const Converter& object);

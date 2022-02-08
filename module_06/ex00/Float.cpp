@@ -48,6 +48,12 @@ Float::Float(double double_value):  Scalar(NULL),
     _float = static_cast<float>(double_value);
 }
 
+Float::Float(Pseudo pseudo):    Scalar(pseudo),
+                                _set_precision(false)
+{
+    return;
+}
+
 Float::~Float(void)
 {
     return;
@@ -81,9 +87,10 @@ void    Float::_checkIfNeedSetPrecision(std::string literal)
 
 Float&   Float::operator=(const Float& object)
 {
-    this->setImpossible(object.getImpossible());
     this->_float = object.getFloat();
     this->_set_precision = object.getPrecision();
+    this->setImpossible(object.getImpossible());
+    this->setPseudo(object.getPseudo());
     return *this;
 }
 
@@ -94,9 +101,12 @@ std::ostream&   operator<<(std::ostream& output, const Float& object)
         output << "Impossible";
         return output;
     }
-    if (object.getPrecision())
-        output << std::setprecision(1) << std::fixed << object.getFloat() << "f";
+    if (object.isPseudo())
+        output << object.getPseudo();
+    else if (object.getPrecision())
+        output << std::setprecision(1) << std::fixed << object.getFloat();
     else
-        output << object.getFloat() << "f";
+        output << object.getFloat();
+    output << "f";
     return output;
 }

@@ -48,6 +48,12 @@ Double::Double(float float_value):  Scalar(NULL),
     _double = static_cast<double>(float_value);
 }
 
+Double::Double(Pseudo pseudo):  Scalar(pseudo),
+                                _set_precision(false)
+{
+    return;
+}
+
 Double::~Double(void)
 {
     return;
@@ -81,9 +87,10 @@ void    Double::_checkIfNeedSetPrecision(std::string literal)
 
 Double&   Double::operator=(const Double& object)
 {
-    this->setImpossible(object.getImpossible());
     this->_double = object.getDouble();
     this->_set_precision = object.getPrecision();
+    this->setImpossible(object.getImpossible());
+    this->setPseudo(object.getPseudo());
     return *this;
 }
 
@@ -94,7 +101,9 @@ std::ostream&   operator<<(std::ostream& output, const Double& object)
         output << "Impossible";
         return output;
     }
-    if (object.getPrecision())
+    if (object.isPseudo())
+        output << object.getPseudo();
+    else if (object.getPrecision())
         output << std::setprecision(1) << std::fixed << object.getDouble();
     else
         output << object.getDouble();

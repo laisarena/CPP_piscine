@@ -35,6 +35,7 @@ class   Double: public Scalar
         Double(char c);
         Double(int int_value);
         Double(float float_value);
+        Double(Pseudo pseudo);
         ~Double(void);
 
         double  getDouble(void) const;

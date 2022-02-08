@@ -35,6 +35,7 @@ class   Float: public Scalar
         Float(char c);
         Float(int int_value);
         Float(double double_value);
+        Float(Pseudo pseudo);
         ~Float(void);
 
         float   getFloat(void) const;

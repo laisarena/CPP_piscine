@@ -49,6 +49,11 @@ Char::Char(double double_value):  Scalar(NULL)
     _char = static_cast<char>(double_value);
 }
 
+Char::Char(Pseudo pseudo):  Scalar(pseudo)
+{
+    setImpossible(true);
+}
+
 Char::~Char(void)
 {
     return;
@@ -70,8 +75,9 @@ bool    Char::_willOverflow(long double value)
 
 Char&   Char::operator=(const Char& object)
 {
-    this->setImpossible(object.getImpossible());
     this->_char = object.getChar();
+    this->setImpossible(object.getImpossible());
+    this->setPseudo(object.getPseudo());
     return *this;
 }
 

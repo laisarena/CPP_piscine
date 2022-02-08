@@ -40,6 +40,9 @@ Converter::Converter(char* literal, int type):  _literal(literal),
         case FLOAT:
             _fromFloat();
             break;
+        case PSEUDO:
+            _fromPseudo();
+            break;
         default:
             throw std::exception();
             break;
@@ -83,6 +86,15 @@ void    Converter::_fromDouble(void)
     _char = Char(_double.getDouble());
     _int = Int(_double.getDouble());
     _float = Float(_double.getDouble());
+}
+
+void    Converter::_fromPseudo(void)
+{
+    _pseudo = Pseudo(_literal);
+    _char = Char(_pseudo);
+    _int = Int(_pseudo);
+    _float = Float(_pseudo);
+    _double = Double(_pseudo);
 }
 
 void    Converter::show(void)
