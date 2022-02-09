@@ -35,11 +35,15 @@ Int::Int(unsigned char c)
 
 Int::Int(float float_value)
 {
+    if (_willOverflow(float_value))
+        setImpossible(true);
     _int = static_cast<int>(float_value);
 }
 
 Int::Int(double double_value)
 {
+    if (_willOverflow(double_value))
+        setImpossible(true);
     _int = static_cast<int>(double_value);
 }
 

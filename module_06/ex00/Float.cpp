@@ -27,7 +27,6 @@ Float::Float(char* literal):    Scalar(literal),
                                 _set_precision(false)
 {
     _float = atof(getLiteral());
-    _checkIfNeedSetPrecision(literal);
 }
 
 Float::Float(char c):   Scalar(NULL),
@@ -71,18 +70,8 @@ bool    Float::getPrecision(void) const
 
 bool    Float::_willOverflow(long double value)
 {
-    if (value > INT_MAX)
-        return true;
-    if (value < INT_MIN)
-        return true;
+    (void)value;
     return false;
-}
-
-void    Float::_checkIfNeedSetPrecision(std::string literal)
-{
-	int pos = std::string(literal).find('.');
-    if (pos != -1)
-        _set_precision = true;
 }
 
 Float&   Float::operator=(const Float& object)
@@ -97,16 +86,12 @@ Float&   Float::operator=(const Float& object)
 std::ostream&   operator<<(std::ostream& output, const Float& object)
 {
     if (object.getImpossible())
-    {
-        output << "Impossible";
         return output;
-    }
-    if (object.isPseudo())
+    else if (object.isPseudo())
         output << object.getPseudo();
     else if (object.getPrecision())
-        output << std::setprecision(1) << std::fixed << object.getFloat();
+        output << std::setprecision(1) << std::fixed << object.getFloat() << "f";
     else
-        output << object.getFloat();
-    output << "f";
+        output << object.getFloat() << "f";
     return output;
 }

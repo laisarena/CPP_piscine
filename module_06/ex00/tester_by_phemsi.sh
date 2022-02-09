@@ -110,6 +110,8 @@ echo -e "${RESET}\n./convert -13579.0f${P_GREEN}"
 $CONVERT -13579.0f
 echo -e "${RESET}\n./convert 127.0f${P_GREEN}"
 $CONVERT 127.0f
+echo -e "${RESET}\n./convert 127.027f${P_GREEN}"
+$CONVERT 127.027f
 
 echo -e "\n${V_GREEN} ----------Double----------\n${RESET}"
 
@@ -127,3 +129,5 @@ echo -e "${RESET}\n./convert -13579.0${P_GREEN}"
 $CONVERT -13579.0
 echo -e "${RESET}\n./convert 127.0${P_GREEN}"
 $CONVERT 127.0
+echo -e "${RESET}\n./convert 127.027${P_GREEN}"
+$CONVERT 127.027
