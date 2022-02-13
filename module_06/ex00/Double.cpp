@@ -26,6 +26,7 @@ Double::Double(const Double& object): RealType(object.getLiteral())
 Double::Double(char* literal):  RealType(literal)
 {
     _double = atof(getLiteral());
+    _checkPrecision(_double);
 }
 
 Double::Double(char c): RealType(NULL, true)
@@ -41,6 +42,7 @@ Double::Double(int int_value):  RealType(NULL, true)
 Double::Double(float float_value):  RealType(NULL)
 {
     _double = static_cast<double>(float_value);
+    _checkPrecision(_double);
 }
 
 Double::Double(Pseudo pseudo):  RealType(pseudo)

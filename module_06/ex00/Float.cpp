@@ -26,6 +26,7 @@ Float::Float(const Float& object): RealType(object.getLiteral())
 Float::Float(char* literal):    RealType(literal)
 {
     _float = atof(getLiteral());
+    _checkPrecision(_float);
 }
 
 Float::Float(char c):   RealType(NULL, true)
@@ -41,6 +42,7 @@ Float::Float(int int_value):    RealType(NULL, true)
 Float::Float(double double_value):  RealType(NULL)
 {
     _float = static_cast<float>(double_value);
+    _checkPrecision(_float);
 }
 
 Float::Float(Pseudo pseudo):    RealType(pseudo)

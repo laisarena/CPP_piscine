@@ -79,6 +79,15 @@ bool    RealType::isPseudo() const
     return false;
 }
 
+void    RealType::_checkPrecision(double value)
+{
+    double  diff;
+
+    diff = value - static_cast<long long int>(value);
+    if (diff == 0)
+        _set_precision = true;
+    
+}
 
 RealType&   RealType::operator=(const RealType& object)
 {

@@ -24,6 +24,9 @@ class   RealType: public ScalarType
         Pseudo  _pseudo;
 
         RealType(const RealType& object);
+
+    protected:
+        void    _checkPrecision(double value);
     
     public:
         RealType(void);
