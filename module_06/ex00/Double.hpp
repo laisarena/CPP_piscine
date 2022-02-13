@@ -13,20 +13,13 @@
 #ifndef DOUBLE_HPP
 # define DOUBLE_HPP
 
-# include <cctype>
-# include <iostream>
-# include <iomanip>
-# include "ScalarType.hpp"
+# include "RealType.hpp"
 
-class   Double: public ScalarType
+class   Double: public RealType
 {
-    private:
         double  _double;
-        bool    _set_precision;
 
         Double(const Double& object);
-
-        bool    _willOverflow(long double value);
     
     public:
         Double(void);
@@ -38,7 +31,6 @@ class   Double: public ScalarType
         ~Double(void);
 
         double  getDouble(void) const;
-        bool    getPrecision(void) const;
 
         Double&    operator=(const Double& object);
 };

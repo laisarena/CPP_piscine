@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Float.hpp                                          :+:      :+:    :+:   */
+/*   RealType.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,32 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FLOAT_HPP
-# define FLOAT_HPP
+#ifndef REAL_TYPE_HPP
+# define REAL_TYPE_HPP
 
-# include "RealType.hpp"
+# include <iomanip>
+# include "ScalarType.hpp"
 
-class   Float: public RealType
+class   RealType: public ScalarType
 {
     private:
-        float   _float;
+        bool    _set_precision;
 
-        Float(const Float& object);
+        RealType(const RealType& object);
     
     public:
-        Float(void);
-        Float(char* literal);
-        Float(char c);
-        Float(int int_value);
-        Float(double double_value);
-        Float(Pseudo pseudo);
-        ~Float(void);
+        RealType(void);
+        RealType(const char* literal);
+        RealType(const char* literal, bool setprecision);
+        RealType(Pseudo pseudo);
+        ~RealType(void);
 
-        float   getFloat(void) const;
+        bool    getSetPrecision(void) const;
+        void    setSetPrecision(bool setprecision);
 
-        Float&    operator=(const Float& object);
+        RealType&    operator=(const RealType& object);
 };
 
-std::ostream&   operator<<(std::ostream& output, const Float& object);
+std::ostream&   operator<<(std::ostream& output, const RealType& object);
 
 #endif

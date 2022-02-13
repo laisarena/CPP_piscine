@@ -17,38 +17,33 @@ Double::Double(void)
     return;
 }
 
-Double::Double(const Double& object): ScalarType(object.getLiteral())
+Double::Double(const Double& object): RealType(object.getLiteral())
 {
     *this = object;
     return;
 }
 
-Double::Double(char* literal):  ScalarType(literal),
-                                _set_precision(false)
+Double::Double(char* literal):  RealType(literal)
 {
     _double = atof(getLiteral());
 }
 
-Double::Double(char c): ScalarType(NULL),
-                        _set_precision(true)
+Double::Double(char c): RealType(NULL, true)
 {
     _double = static_cast<double>(c);
 }
 
-Double::Double(int int_value):  ScalarType(NULL),
-                                _set_precision(true)
+Double::Double(int int_value):  RealType(NULL, true)
 {
     _double = static_cast<double>(int_value);
 }
 
-Double::Double(float float_value):  ScalarType(NULL),
-                                    _set_precision(false)
+Double::Double(float float_value):  RealType(NULL)
 {
     _double = static_cast<double>(float_value);
 }
 
-Double::Double(Pseudo pseudo):  ScalarType(pseudo),
-                                _set_precision(false)
+Double::Double(Pseudo pseudo):  RealType(pseudo)
 {
     return;
 }
@@ -63,21 +58,10 @@ double    Double::getDouble(void) const
     return _double;
 }
 
-bool    Double::getPrecision(void) const
-{
-    return _set_precision;
-}
-
-bool    Double::_willOverflow(long double value)
-{
-    (void)value;
-    return false;
-}
-
 Double&   Double::operator=(const Double& object)
 {
     this->_double = object.getDouble();
-    this->_set_precision = object.getPrecision();
+    this->setSetPrecision(object.getSetPrecision());
     this->setPseudo(object.getPseudo());
     return *this;
 }
@@ -86,7 +70,7 @@ std::ostream&   operator<<(std::ostream& output, const Double& object)
 {
     if (object.isPseudo())
         output << object.getPseudo();
-    else if (object.getPrecision())
+    else if (object.getSetPrecision())
         output << std::setprecision(1) << std::fixed << object.getDouble();
     else
         output << object.getDouble();

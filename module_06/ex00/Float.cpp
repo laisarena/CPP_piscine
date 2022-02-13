@@ -17,38 +17,33 @@ Float::Float(void)
     return;
 }
 
-Float::Float(const Float& object): ScalarType(object.getLiteral())
+Float::Float(const Float& object): RealType(object.getLiteral())
 {
     *this = object;
     return;
 }
 
-Float::Float(char* literal):    ScalarType(literal),
-                                _set_precision(false)
+Float::Float(char* literal):    RealType(literal)
 {
     _float = atof(getLiteral());
 }
 
-Float::Float(char c):   ScalarType(NULL),
-                        _set_precision(true)
+Float::Float(char c):   RealType(NULL, true)
 {
     _float = static_cast<float>(c);
 }
 
-Float::Float(int int_value):    ScalarType(NULL),
-                                _set_precision(true)
+Float::Float(int int_value):    RealType(NULL, true)
 {
     _float = static_cast<float>(int_value);
 }
 
-Float::Float(double double_value):  ScalarType(NULL),
-                                    _set_precision(false)
+Float::Float(double double_value):  RealType(NULL)
 {
     _float = static_cast<float>(double_value);
 }
 
-Float::Float(Pseudo pseudo):    ScalarType(pseudo),
-                                _set_precision(false)
+Float::Float(Pseudo pseudo):    RealType(pseudo)
 {
     return;
 }
@@ -63,21 +58,10 @@ float    Float::getFloat(void) const
     return _float;
 }
 
-bool    Float::getPrecision(void) const
-{
-    return _set_precision;
-}
-
-bool    Float::_willOverflow(long double value)
-{
-    (void)value;
-    return false;
-}
-
 Float&   Float::operator=(const Float& object)
 {
     this->_float = object.getFloat();
-    this->_set_precision = object.getPrecision();
+    this->setSetPrecision(object.getSetPrecision());
     this->setPseudo(object.getPseudo());
     return *this;
 }
@@ -86,7 +70,7 @@ std::ostream&   operator<<(std::ostream& output, const Float& object)
 {
     if (object.isPseudo())
         output << object.getPseudo();
-    else if (object.getPrecision())
+    else if (object.getSetPrecision())
         output << std::setprecision(1) << std::fixed << object.getFloat() << "f";
     else
         output << object.getFloat() << "f";

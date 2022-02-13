@@ -20,6 +20,7 @@ RM := rm -rf
 
 SRCS := ScalarType.cpp\
 		IntegerType.cpp\
+		RealType.cpp\
 		Char.cpp\
 		Int.cpp\
 		Float.cpp\
