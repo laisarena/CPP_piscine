@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Scalar.cpp                                         :+:      :+:    :+:   */
+/*   ScalarType.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,73 +10,73 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Scalar.hpp"
+#include "ScalarType.hpp"
 
-Scalar::Scalar(void):   _literal(NULL),
-                        _impossible(false),
-                        _pseudo()
+ScalarType::ScalarType(void):   _literal(NULL),
+                                _impossible(false),
+                                _pseudo()
 {
     return;
 }
 
-Scalar::Scalar(const Scalar& object)
+ScalarType::ScalarType(const ScalarType& object)
 {
     *this = object;
     return;
 }
 
-Scalar::Scalar(const char* literal):    _literal(literal),
+ScalarType::ScalarType(const char* literal):    _literal(literal),
+                                                _impossible(false),
+                                                _pseudo()
+{
+    return;
+}
+
+ScalarType::ScalarType(Pseudo pseudo):  _literal(NULL),
                                         _impossible(false),
-                                        _pseudo()
+                                        _pseudo(pseudo)
 {
     return;
 }
 
-Scalar::Scalar(Pseudo pseudo):  _literal(NULL),
-                                _impossible(false),
-                                _pseudo(pseudo)
+ScalarType::~ScalarType(void)
 {
     return;
 }
 
-Scalar::~Scalar(void)
-{
-    return;
-}
-
-const char* Scalar::getLiteral() const
+const char* ScalarType::getLiteral() const
 {
     return _literal;   
 }
 
-bool    Scalar::getImpossible() const
+bool    ScalarType::getImpossible() const
 {
     return _impossible;
 }
 
-Pseudo  Scalar::getPseudo() const
+Pseudo  ScalarType::getPseudo() const
 {
     return _pseudo;
 }
 
-void    Scalar::setImpossible(bool impossible)
+void    ScalarType::setImpossible(bool impossible)
 {
     _impossible = impossible;
 }
 
-void    Scalar::setPseudo(Pseudo pseudo)
+void    ScalarType::setPseudo(Pseudo pseudo)
 {
     _pseudo = pseudo;
 }
 
-bool    Scalar::isPseudo() const
+bool    ScalarType::isPseudo() const
 {
     if (_pseudo.getPseudo())
         return true;
     return false;
 }
 
-Scalar&   Scalar::operator=(const Scalar& object)
+ScalarType&   ScalarType::operator=(const ScalarType& object)
 {
     this->_literal = object.getLiteral();
     this->_impossible = object.getImpossible();

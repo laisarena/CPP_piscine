@@ -18,7 +18,7 @@ CFLAGS += -g
 CFLAGS += -std=c++98
 RM := rm -rf
 
-SRCS := Scalar.cpp\
+SRCS := ScalarType.cpp\
 		Char.cpp\
 		Int.cpp\
 		Float.cpp\

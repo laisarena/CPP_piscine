@@ -17,37 +17,37 @@ Double::Double(void)
     return;
 }
 
-Double::Double(const Double& object): Scalar(object.getLiteral())
+Double::Double(const Double& object): ScalarType(object.getLiteral())
 {
     *this = object;
     return;
 }
 
-Double::Double(char* literal):  Scalar(literal),
+Double::Double(char* literal):  ScalarType(literal),
                                 _set_precision(false)
 {
     _double = atof(getLiteral());
 }
 
-Double::Double(char c): Scalar(NULL),
+Double::Double(char c): ScalarType(NULL),
                         _set_precision(true)
 {
     _double = static_cast<double>(c);
 }
 
-Double::Double(int int_value):  Scalar(NULL),
+Double::Double(int int_value):  ScalarType(NULL),
                                 _set_precision(true)
 {
     _double = static_cast<double>(int_value);
 }
 
-Double::Double(float float_value):  Scalar(NULL),
+Double::Double(float float_value):  ScalarType(NULL),
                                     _set_precision(false)
 {
     _double = static_cast<double>(float_value);
 }
 
-Double::Double(Pseudo pseudo):  Scalar(pseudo),
+Double::Double(Pseudo pseudo):  ScalarType(pseudo),
                                 _set_precision(false)
 {
     return;

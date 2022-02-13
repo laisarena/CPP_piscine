@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Scalar.hpp                                         :+:      :+:    :+:   */
+/*   ScalarType.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,30 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAR_HPP
-# define SCALAR_HPP
+#ifndef SCALAR_TYPE_HPP
+# define SCALAR_TYPE_HPP
 
 # include <cctype>
 # include <iostream>
 # include <climits>
 # include "Pseudo.hpp"
 
-class   Scalar
+class   ScalarType
 {
     private:
         const char* _literal;
         bool        _impossible;
         Pseudo      _pseudo;
 
-        Scalar(const Scalar& object);
+        ScalarType(const ScalarType& object);
     
         virtual bool    _willOverflow(long double value) = 0;
 
     public:
-        Scalar(void);
-        Scalar(const char* literal);
-        Scalar(Pseudo pseudo);
-        ~Scalar(void);
+        ScalarType(void);
+        ScalarType(const char* literal);
+        ScalarType(Pseudo pseudo);
+        ~ScalarType(void);
 
         const char* getLiteral() const;
         bool        getImpossible() const;
@@ -43,7 +43,7 @@ class   Scalar
 
         bool        isPseudo() const;
 
-        Scalar&  operator=(const Scalar& object);
+        ScalarType&  operator=(const ScalarType& object);
 };
 
 #endif

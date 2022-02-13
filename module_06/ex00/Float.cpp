@@ -17,37 +17,37 @@ Float::Float(void)
     return;
 }
 
-Float::Float(const Float& object): Scalar(object.getLiteral())
+Float::Float(const Float& object): ScalarType(object.getLiteral())
 {
     *this = object;
     return;
 }
 
-Float::Float(char* literal):    Scalar(literal),
+Float::Float(char* literal):    ScalarType(literal),
                                 _set_precision(false)
 {
     _float = atof(getLiteral());
 }
 
-Float::Float(char c):   Scalar(NULL),
+Float::Float(char c):   ScalarType(NULL),
                         _set_precision(true)
 {
     _float = static_cast<float>(c);
 }
 
-Float::Float(int int_value):    Scalar(NULL),
+Float::Float(int int_value):    ScalarType(NULL),
                                 _set_precision(true)
 {
     _float = static_cast<float>(int_value);
 }
 
-Float::Float(double double_value):  Scalar(NULL),
+Float::Float(double double_value):  ScalarType(NULL),
                                     _set_precision(false)
 {
     _float = static_cast<float>(double_value);
 }
 
-Float::Float(Pseudo pseudo):    Scalar(pseudo),
+Float::Float(Pseudo pseudo):    ScalarType(pseudo),
                                 _set_precision(false)
 {
     return;

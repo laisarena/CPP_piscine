@@ -16,9 +16,9 @@
 # include <cctype>
 # include <iostream>
 # include <iomanip>
-# include "Scalar.hpp"
+# include "ScalarType.hpp"
 
-class   Double: public Scalar
+class   Double: public ScalarType
 {
     private:
         double  _double;

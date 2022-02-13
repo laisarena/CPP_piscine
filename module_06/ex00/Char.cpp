@@ -17,39 +17,39 @@ Char::Char(void)
     return;
 }
 
-Char::Char(const Char& object): Scalar(object.getLiteral())
+Char::Char(const Char& object): ScalarType(object.getLiteral())
 {
     *this = object;
     return;
 }
 
-Char::Char(char* literal):  Scalar(literal)
+Char::Char(char* literal):  ScalarType(literal)
 {
     _char = *(getLiteral());
 }
 
-Char::Char(int int_value):  Scalar(NULL)
+Char::Char(int int_value):  ScalarType(NULL)
 {
     if (_willOverflow(int_value))
         setImpossible(true);
     _char = static_cast<char>(int_value);
 }
 
-Char::Char(float float_value):  Scalar(NULL)
+Char::Char(float float_value):  ScalarType(NULL)
 {
     if (_willOverflow(float_value))
         setImpossible(true);
     _char = static_cast<char>(float_value);
 }
 
-Char::Char(double double_value):  Scalar(NULL)
+Char::Char(double double_value):  ScalarType(NULL)
 {
     if (_willOverflow(double_value))
         setImpossible(true);
     _char = static_cast<char>(double_value);
 }
 
-Char::Char(Pseudo pseudo):  Scalar(pseudo)
+Char::Char(Pseudo pseudo):  ScalarType(pseudo)
 {
     setImpossible(true);
 }

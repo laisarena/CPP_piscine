@@ -17,13 +17,13 @@ Int::Int(void)
     return;
 }
 
-Int::Int(const Int& object): Scalar(object.getLiteral())
+Int::Int(const Int& object): ScalarType(object.getLiteral())
 {
     *this = object;
     return;
 }
 
-Int::Int(char* literal):  Scalar(literal)
+Int::Int(char* literal):  ScalarType(literal)
 {
     _int = atoi(getLiteral());
 }
@@ -47,7 +47,7 @@ Int::Int(double double_value)
     _int = static_cast<int>(double_value);
 }
 
-Int::Int(Pseudo pseudo):    Scalar(pseudo)
+Int::Int(Pseudo pseudo):    ScalarType(pseudo)
 {
     setImpossible(true);
 }
