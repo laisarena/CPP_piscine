@@ -30,19 +30,19 @@ Int::Int(char* literal):  IntegerType(literal)
     _int = atoi(getLiteral());
 }
 
-Int::Int(unsigned char c)
+Int::Int(unsigned char c):  IntegerType(NULL)
 {
     _int = static_cast<int>(c);
 }
 
-Int::Int(float float_value)
+Int::Int(float float_value):    IntegerType(NULL)
 {
     if (_willOverflow(float_value))
         setImpossible(true);
     _int = static_cast<int>(float_value);
 }
 
-Int::Int(double double_value)
+Int::Int(double double_value):  IntegerType(NULL)
 {
     if (_willOverflow(double_value))
         setImpossible(true);
