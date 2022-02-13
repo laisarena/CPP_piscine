@@ -15,27 +15,20 @@
 
 # include <cctype>
 # include <iostream>
-# include "Pseudo.hpp"
 
 class   ScalarType
 {
     private:
         const char* _literal;
-        Pseudo      _pseudo;
 
         ScalarType(const ScalarType& object);
     
     public:
         ScalarType(void);
         ScalarType(const char* literal);
-        ScalarType(Pseudo pseudo);
         ~ScalarType(void);
 
         const char* getLiteral() const;
-        Pseudo      getPseudo() const;
-        void        setPseudo(Pseudo pseudo);
-
-        bool        isPseudo() const;
 
         ScalarType&  operator=(const ScalarType& object);
 };

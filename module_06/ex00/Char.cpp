@@ -12,7 +12,7 @@
 
 #include "Char.hpp"
 
-Char::Char(void)
+Char::Char(void):   IntegerType()
 {
     return;
 }
@@ -49,11 +49,6 @@ Char::Char(double double_value):  IntegerType(NULL)
     _char = static_cast<char>(double_value);
 }
 
-Char::Char(Pseudo pseudo):  IntegerType(pseudo)
-{
-    setImpossible(true);
-}
-
 Char::~Char(void)
 {
     return;
@@ -77,7 +72,6 @@ Char&   Char::operator=(const Char& object)
 {
     this->_char = object.getChar();
     this->setImpossible(object.getImpossible());
-    this->setPseudo(object.getPseudo());
     return *this;
 }
 

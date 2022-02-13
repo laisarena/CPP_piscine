@@ -32,7 +32,6 @@ class   Char: public IntegerType
         Char(int int_value);
         Char(float float_value);
         Char(double double_value);
-        Char(Pseudo pseudo);
         ~Char(void);
 
         unsigned char   getChar(void) const;

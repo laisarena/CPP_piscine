@@ -15,11 +15,13 @@
 
 # include <iomanip>
 # include "ScalarType.hpp"
+# include "Pseudo.hpp"
 
 class   RealType: public ScalarType
 {
     private:
         bool    _set_precision;
+        Pseudo  _pseudo;
 
         RealType(const RealType& object);
     
@@ -32,6 +34,9 @@ class   RealType: public ScalarType
 
         bool    getSetPrecision(void) const;
         void    setSetPrecision(bool setprecision);
+        Pseudo  getPseudo() const;
+        void    setPseudo(Pseudo pseudo);
+        bool    isPseudo() const;
 
         RealType&    operator=(const RealType& object);
 };

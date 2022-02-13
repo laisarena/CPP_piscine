@@ -91,8 +91,8 @@ void    Converter::_fromDouble(void)
 void    Converter::_fromPseudo(void)
 {
     _pseudo = Pseudo(_literal);
-    _char = Char(_pseudo);
-    _int = Int(_pseudo);
+    _char = Char();
+    _int = Int();
     _float = Float(_pseudo);
     _double = Double(_pseudo);
 }

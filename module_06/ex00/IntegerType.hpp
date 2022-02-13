@@ -28,7 +28,6 @@ class   IntegerType:    public ScalarType
     public:
         IntegerType(void);
         IntegerType(const char* literal);
-        IntegerType(Pseudo pseudo);
         ~IntegerType(void);
 
         bool        getImpossible() const;

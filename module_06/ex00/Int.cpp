@@ -12,7 +12,7 @@
 
 #include "Int.hpp"
 
-Int::Int(void)
+Int::Int(void): IntegerType()
 {
     return;
 }
@@ -49,11 +49,6 @@ Int::Int(double double_value)
     _int = static_cast<int>(double_value);
 }
 
-Int::Int(Pseudo pseudo):    IntegerType(pseudo)
-{
-    setImpossible(true);
-}
-
 Int::~Int(void)
 {
     return;
@@ -77,7 +72,6 @@ Int&   Int::operator=(const Int& object)
 {
     this->_int = object.getInt();
     this->setImpossible(object.getImpossible());
-    this->setPseudo(object.getPseudo());
     return *this;
 }
 

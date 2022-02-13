@@ -13,7 +13,8 @@
 #include "RealType.hpp"
 
 RealType::RealType(void):   ScalarType(),
-                            _set_precision(false)
+                            _set_precision(false),
+                            _pseudo()
 {
     return;
 }
@@ -25,20 +26,23 @@ RealType::RealType(const RealType& object)
 }
 
 RealType::RealType(const char* literal):    ScalarType(literal),
-                                            _set_precision(false)
+                                            _set_precision(false),
+                                            _pseudo()
 {
     return;
 }
 
-RealType::RealType(Pseudo pseudo):  ScalarType(pseudo),
-                                    _set_precision(false)
+RealType::RealType(Pseudo pseudo):  ScalarType(),
+                                    _set_precision(false),
+                                    _pseudo(pseudo)
 {
     return;
 }
 
 RealType::RealType(const char* literal, bool setprecision):
                                             ScalarType(literal),
-                                            _set_precision(setprecision)
+                                            _set_precision(setprecision),
+                                            _pseudo()
 {
     return;
 }
@@ -57,6 +61,24 @@ void    RealType::setSetPrecision(bool setprecision)
 {
     _set_precision = setprecision;
 }
+
+Pseudo  RealType::getPseudo() const
+{
+    return _pseudo;
+}
+
+void    RealType::setPseudo(Pseudo pseudo)
+{
+    _pseudo = pseudo;
+}
+
+bool    RealType::isPseudo() const
+{
+    if (_pseudo.getPseudo())
+        return true;
+    return false;
+}
+
 
 RealType&   RealType::operator=(const RealType& object)
 {

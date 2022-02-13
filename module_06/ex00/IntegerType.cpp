@@ -13,7 +13,7 @@
 #include "IntegerType.hpp"
 
 IntegerType::IntegerType(void): ScalarType(),
-                                _impossible(false)
+                                _impossible(true)
 {
     return;
 }
@@ -26,12 +26,6 @@ IntegerType::IntegerType(const IntegerType& object)
 
 IntegerType::IntegerType(const char* literal):  ScalarType(literal),
                                                 _impossible(false)
-{
-    return;
-}
-
-IntegerType::IntegerType(Pseudo pseudo):    ScalarType(pseudo),
-                                            _impossible(false)
 {
     return;
 }
@@ -53,7 +47,6 @@ void    IntegerType::setImpossible(bool impossible)
 
 IntegerType&   IntegerType::operator=(const IntegerType& object)
 {
-    this->setPseudo(object.getPseudo());
     this->_impossible = object.getImpossible();
     return *this;
 }
