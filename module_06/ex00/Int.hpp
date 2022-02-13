@@ -13,8 +13,6 @@
 #ifndef INT_HPP
 # define INT_HPP
 
-# include <cctype>
-# include <iostream>
 # include "IntegerType.hpp"
 
 class   Int: public IntegerType

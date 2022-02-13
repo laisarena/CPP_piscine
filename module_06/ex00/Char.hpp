@@ -13,8 +13,6 @@
 #ifndef CHAR_HPP
 # define CHAR_HPP
 
-# include <cctype>
-# include <iostream>
 # include "IntegerType.hpp"
 
 class   Char: public IntegerType

@@ -13,7 +13,7 @@
 #ifndef SCALAR_TYPE_HPP
 # define SCALAR_TYPE_HPP
 
-# include <cctype>
+# include <cstdlib>
 # include <iostream>
 
 class   ScalarType

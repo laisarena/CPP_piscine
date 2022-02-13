@@ -131,3 +131,5 @@ echo -e "${RESET}\n./convert 127.0${P_GREEN}"
 $CONVERT 127.0
 echo -e "${RESET}\n./convert 127.027${P_GREEN}"
 $CONVERT 127.027
+
+echo -e "${RESET}"
