@@ -15,9 +15,9 @@
 
 # include <cctype>
 # include <iostream>
-# include "ScalarType.hpp"
+# include "IntegerType.hpp"
 
-class   Char: public ScalarType
+class   Char: public IntegerType
 {
     private:
         unsigned char   _char;

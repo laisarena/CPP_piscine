@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarType.hpp                                     :+:      :+:    :+:   */
+/*   IntegerType.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lfrasson <lfrasson@student.42sp.org.b      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,34 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAR_TYPE_HPP
-# define SCALAR_TYPE_HPP
+#ifndef INTEGER_TYPE_HPP
+# define INTEGER_TYPE_HPP
 
-# include <cctype>
-# include <iostream>
-# include "Pseudo.hpp"
+# include <climits>
+# include "ScalarType.hpp"
 
-class   ScalarType
+class   IntegerType:    public ScalarType
 {
     private:
-        const char* _literal;
-        Pseudo      _pseudo;
+        bool        _impossible;
 
-        ScalarType(const ScalarType& object);
+        IntegerType(const IntegerType& object);
     
+        virtual bool    _willOverflow(long double value) = 0;
+
     public:
-        ScalarType(void);
-        ScalarType(const char* literal);
-        ScalarType(Pseudo pseudo);
-        ~ScalarType(void);
+        IntegerType(void);
+        IntegerType(const char* literal);
+        IntegerType(Pseudo pseudo);
+        ~IntegerType(void);
 
-        const char* getLiteral() const;
-        Pseudo      getPseudo() const;
-        void        setPseudo(Pseudo pseudo);
+        bool        getImpossible() const;
+        void        setImpossible(bool impossible);
 
-        bool        isPseudo() const;
-
-        ScalarType&  operator=(const ScalarType& object);
+        IntegerType&  operator=(const IntegerType& object);
 };
 
 #endif

@@ -78,16 +78,13 @@ Float&   Float::operator=(const Float& object)
 {
     this->_float = object.getFloat();
     this->_set_precision = object.getPrecision();
-    this->setImpossible(object.getImpossible());
     this->setPseudo(object.getPseudo());
     return *this;
 }
 
 std::ostream&   operator<<(std::ostream& output, const Float& object)
 {
-    if (object.getImpossible())
-        return output;
-    else if (object.isPseudo())
+    if (object.isPseudo())
         output << object.getPseudo();
     else if (object.getPrecision())
         output << std::setprecision(1) << std::fixed << object.getFloat() << "f";

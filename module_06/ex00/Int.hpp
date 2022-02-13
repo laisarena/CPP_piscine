@@ -15,9 +15,9 @@
 
 # include <cctype>
 # include <iostream>
-# include "ScalarType.hpp"
+# include "IntegerType.hpp"
 
-class   Int: public ScalarType
+class   Int: public IntegerType
 {
     private:
         int _int;

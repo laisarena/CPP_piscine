@@ -78,16 +78,13 @@ Double&   Double::operator=(const Double& object)
 {
     this->_double = object.getDouble();
     this->_set_precision = object.getPrecision();
-    this->setImpossible(object.getImpossible());
     this->setPseudo(object.getPseudo());
     return *this;
 }
 
 std::ostream&   operator<<(std::ostream& output, const Double& object)
 {
-    if (object.getImpossible())
-        output << "Impossible";
-    else if (object.isPseudo())
+    if (object.isPseudo())
         output << object.getPseudo();
     else if (object.getPrecision())
         output << std::setprecision(1) << std::fixed << object.getDouble();
