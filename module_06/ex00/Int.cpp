@@ -25,6 +25,8 @@ Int::Int(const Int& object): IntegerType(object.getLiteral())
 
 Int::Int(char* literal):  IntegerType(literal)
 {
+    if (_willOverflow(atol(getLiteral())))
+        setImpossible(true);
     _int = atoi(getLiteral());
 }
 
