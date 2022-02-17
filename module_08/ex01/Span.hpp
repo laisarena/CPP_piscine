@@ -22,6 +22,8 @@ class Span
     private:
         unsigned int        _n;
         std::vector<int>    _container;
+
+        void    _checkIfIsPossibleCalculateDistance(void) const;
     
     public:
         Span(void);

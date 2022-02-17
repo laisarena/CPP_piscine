@@ -49,10 +49,15 @@ void    Span::addNumber(std::vector<int>::iterator first,
     }
 }
 
-int     Span::shortestSpan(void) 
+void    Span::_checkIfIsPossibleCalculateDistance(void) const
 {
     if ( _container.empty() || _container.size() == 1)
         throw NoSpanException();
+}
+
+int     Span::shortestSpan(void) 
+{
+    _checkIfIsPossibleCalculateDistance();
     
     std::sort(_container.begin(), _container.end());
 
@@ -82,8 +87,7 @@ int     Span::longestSpan(void) const
     int min;
     int max;
 
-    if ( _container.empty() || _container.size() == 1)
-        throw NoSpanException();
+    _checkIfIsPossibleCalculateDistance();
     min = *(std::min_element(_container.begin(),
                                 _container.end()));
     max = *(std::max_element(_container.begin(),

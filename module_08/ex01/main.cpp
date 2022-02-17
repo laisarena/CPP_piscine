@@ -27,7 +27,7 @@ static std::vector<int> createVectorWithRandomNumbers(int size)
     return vector;
 }
 
-void   largeTest(int size)
+static void   largeTest(int size)
 {
 
     Span    span(size);
@@ -40,7 +40,7 @@ void   largeTest(int size)
     std::cout << std::endl;
 }
 
-void    oneElementSpanTest(void)
+static void    oneElementSpanTest(void)
 {
     Span span(3);
     span.addNumber(6);
@@ -61,7 +61,7 @@ void    oneElementSpanTest(void)
 
 }
 
-void    emptySpanTest(void)
+static void    emptySpanTest(void)
 {
     Span span(3);
 
@@ -80,7 +80,7 @@ void    emptySpanTest(void)
     std::cout << std::endl;
 }
 
-void    simpleTest(void)
+static void    simpleTest(void)
 {
     Span span(5);
 
