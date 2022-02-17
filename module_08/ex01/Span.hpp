@@ -24,6 +24,7 @@ class Span
         std::vector<int>    _container;
 
         void    _checkIfIsPossibleCalculateDistance(void) const;
+        void    _sortContainer(void);
     
     public:
         Span(void);

@@ -55,22 +55,20 @@ void    Span::_checkIfIsPossibleCalculateDistance(void) const
         throw NoSpanException();
 }
 
+void    Span::_sortContainer(void)
+{
+    std::sort(_container.begin(), _container.end());
+}
+
 int     Span::shortestSpan(void) 
 {
     _checkIfIsPossibleCalculateDistance();
+    _sortContainer();
     
-    std::sort(_container.begin(), _container.end());
-
-    std::vector<int>::iterator first;
-    std::vector<int>::iterator last;
+    std::vector<int>::iterator first = _container.begin();
+    std::vector<int>::iterator last = _container.end() - 1;
     
-    first = _container.begin();
-    last = _container.end();
-    --last;
-
-    int diff;
-    diff = *(first + 1) - *first;    
-    
+    int diff = *(first + 1) - *first;
     int shortest = diff;
     while (first != last)
     {
