@@ -22,7 +22,7 @@ static std::vector<int> createVectorWithRandomNumbers(int size)
 {
     std::vector<int>    vector(size);
     
-    std::srand(std::time(NULL));
+    std::srand(time(NULL));
     std::generate (vector.begin(), vector.end(), randomNumber);
     return vector;
 }
