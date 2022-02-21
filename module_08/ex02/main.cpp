@@ -14,9 +14,35 @@
 #include <list>
 #include "MutantStack.hpp"
 
-static void    compareWithList(void)
+static void testMemberFunctions(std::stack<int> stack, std::string type)
 {
-    std::cout << "--- LIST ---" << std::endl;
+    std::cout << "--- TESTE MERBER FUNCTIONS --- " << type << std::endl << std::endl;
+
+    std::cout << "EMPTY ->\t" << stack.empty() << std::endl;
+    std::cout << "SIZE ->\t\t" << stack.size() << std::endl;
+    std::cout << "* PUSH 42" << std::endl;
+    stack.push(42);
+    std::cout << "EMPTY ->\t" << stack.empty() << std::endl;
+    std::cout << "SIZE ->\t\t" << stack.size() << std::endl;
+    std::cout << "TOP ->\t\t" <<stack.top() << std::endl;
+    std::cout << "* PUSH 21" << std::endl;
+    stack.push(21);
+    std::cout << "EMPTY ->\t" << stack.empty() << std::endl;
+    std::cout << "SIZE ->\t\t" << stack.size() << std::endl;
+    std::cout << "TOP ->\t\t" <<stack.top() << std::endl;
+    std::cout << "* PUSH 21" << std::endl;
+    std::cout << "* POP" << std::endl;
+    stack.pop();
+    std::cout << "EMPTY ->\t" << stack.empty() << std::endl;
+    std::cout << "SIZE ->\t\t" << stack.size() << std::endl;
+    std::cout << "TOP ->\t\t" <<stack.top() << std::endl;
+
+    std::cout << std::endl;
+}
+
+static void compareWithList(void)
+{
+    std::cout << "--- SIMPLE TESTE --- LIST" << std::endl << std::endl;
     
     std::list<int> list;
     
@@ -30,7 +56,7 @@ static void    compareWithList(void)
     list.push_back(737);
     list.push_back(0);
 
-    std::cout << "Print elements:" << std::endl;
+    std::cout << std::endl << "Print elements:" << std::endl;
     std::list<int>::iterator it = list.begin();
     std::list<int>::iterator ite = list.end();
     ++it;
@@ -40,11 +66,12 @@ static void    compareWithList(void)
         std::cout << *it << std::endl;
         ++it;
     }
+    std::cout << std::endl;
 }
 
 static void    simpleTest(void)
 {
-    std::cout << "--- SIMPLE MUTANT TESTE ---" << std::endl;
+    std::cout << "--- SIMPLE TESTE --- MUTANT" << std::endl << std::endl;
     
     MutantStack<int> mstack;
     
@@ -58,7 +85,7 @@ static void    simpleTest(void)
     mstack.push(737);
     mstack.push(0);
 
-    std::cout << "Print elements:" << std::endl;
+    std::cout << std::endl << "Print elements:" << std::endl;
     MutantStack<int>::iterator it = mstack.begin();
     MutantStack<int>::iterator ite = mstack.end();
     ++it;
@@ -69,10 +96,16 @@ static void    simpleTest(void)
         ++it;
     }
     std::stack<int> s(mstack);
+    std::cout << std::endl;
 }
 
 int main(void)
 {
+    MutantStack<int>    mstack;
+    std::stack<int>     stack;
+
+    testMemberFunctions(stack, "ORIGINAL");
+    testMemberFunctions(mstack, "MUTANT");
     simpleTest();
     compareWithList();
     return 0;
